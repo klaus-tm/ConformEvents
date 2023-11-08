@@ -1,0 +1,28 @@
+/* Main */
+.intro{
+    margin: 0px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.container{
+    display: table;
+    margin: 0 auto;
+}
+
+.container-img{
+    height: 250px;
+    width: auto;
+    flex: 1;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.img1{
+    margin: 10px;
+}
+
+.img2{
+    position: relative;
+    top: 42px;;
+}

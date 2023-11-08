@@ -1,0 +1,101 @@
+/* Logo-ul */
+.logo {
+    display: flex;
+    align-items: center;
+    float: left;
+    width: 50%;
+    justify-content: flex-start;
+}
+
+.logo img {
+    max-width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+#home-link{
+    text-decoration: none;
+    color: var(--brand-color);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Meniul principal */
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    float: right;
+    width: 50%;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+/* Meniul dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    font-size: 18px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: var(--bg-color);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--text-secundary);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: var(--white);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn::after {
+    content: "\25BC"; /* Cod Unicode pentru o săgeată cu capul în jos */
+    position: absolute;
+    transition: 0.3s; /* Adaugă o tranziție pentru mișcare */
+}
+
+.dropbtn:hover::after {
+    top: 3px; /* Mișcă săgeata în jos cu 3px când butonul este atins */
+}
+
+/* Butoanele din header */
+#login-button {
+    width: 100px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    text-align: center;
+    display: inline-block;
+    background-color: var(--btn-color);
+    color: var(--white);
+    font-size: 16px;
+}
+
+#login-button:hover {
+    background-color: var(--btn-hover)
+}

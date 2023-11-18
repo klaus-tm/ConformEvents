@@ -1,7 +1,7 @@
 package com.example.conformevents.controller;
 
 import com.example.conformevents.entity.User;
-import com.example.conformevents.entity.UserCredentials;
+import com.example.conformevents.entity.PersonCredentials;
 import com.example.conformevents.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,8 +22,8 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<User> getUserByMailAndPassword(@Validated @RequestBody UserCredentials userCredentials){
-        Optional<User> user = userService.getUserByMailAndPassword(userCredentials.getMail(), userCredentials.getPassword());
+    public ResponseEntity<User> getUserByMailAndPassword(@Validated @RequestBody PersonCredentials personCredentials){
+        Optional<User> user = userService.getUserByMailAndPassword(personCredentials.getMail(), personCredentials.getPassword());
         if(user.isPresent()){
             return new ResponseEntity<>(user.get(), HttpStatus.FOUND);
         }

@@ -1,10 +1,10 @@
 package com.example.conformevents.entity;
 
-public class UserCredentials {
+public class PersonCredentials {
     private String mail;
     private String password;
 
-    public UserCredentials(String mail, String password) {
+    public PersonCredentials(String mail, String password) {
         this.mail = mail;
         this.password = password;
     }

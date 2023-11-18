@@ -36,7 +36,6 @@ function App(){
             </header>
             {showLogin ? <Login /> : <Home />}
         </div>
-        );
     </div>
 }
 

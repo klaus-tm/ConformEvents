@@ -31,17 +31,11 @@ function Login() {
                     <div className="flip-card__back">
                         <p className="title">Create account</p>
                         <form className="flip-card__form">
-                            <input type="text" className="flip-card__input" placeholder="Name" />
-                            <input
-                                type="email"
-                                className="flip-card__input"
-                                placeholder="Email"
-                            />
-                            <input
-                                type="password"
-                                className="flip-card__input"
-                                placeholder="Password"
-                            />
+                            <input type="text" className="flip-card__input" placeholder="First name" />
+                            <input type="text" className="flip-card__input" placeholder="Last name" />
+                            <input type="text" className="flip-card__input" placeholder="Phone" />
+                            <input type="email" className="flip-card__input" placeholder="Email"/>
+                            <input type="password" className="flip-card__input" placeholder="Password"/>
                             <button className="flip-card__btn">Create account</button>
                         </form>
                         I'm an

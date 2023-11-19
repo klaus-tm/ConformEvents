@@ -18,5 +18,4 @@ public interface VolunteerService {
     Boolean volunteerExists(Long volunteerId);
 
     void deleteVolunteerById(Long volunteerId);
-
 }

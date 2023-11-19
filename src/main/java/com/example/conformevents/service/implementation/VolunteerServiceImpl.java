@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @Service
 public class VolunteerServiceImpl implements VolunteerService {
-
     @Autowired
     private VolunteerRepository VolunteerRepository;
 

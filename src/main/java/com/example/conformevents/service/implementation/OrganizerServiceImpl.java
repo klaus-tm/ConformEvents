@@ -12,7 +12,6 @@ import java.util.Optional;
 
 @Service
 public class OrganizerServiceImpl implements OrganizerService {
-
     @Autowired
     private OrganizerRepository organizerRepository;
 

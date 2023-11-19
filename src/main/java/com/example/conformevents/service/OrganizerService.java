@@ -6,7 +6,6 @@ import com.example.conformevents.entity.User;
 import java.util.Optional;
 
 public interface OrganizerService {
-
     Optional<Organizer> getOrganizerByMailAndPassword(String mail, String password);
 
     Optional<Organizer> getOrganizerById(Long organizerId);
@@ -18,5 +17,4 @@ public interface OrganizerService {
     Boolean organizerExists(Long organizerId);
 
     void deleteOrganizerById(Long organizerId);
-
 }

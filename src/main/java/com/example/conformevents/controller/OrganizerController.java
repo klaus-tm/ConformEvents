@@ -18,12 +18,12 @@ public class OrganizerController {
     private OrganizerService organizerService;
 
     @PostMapping("/organizers")
-    public ResponseEntity<Organizer> saveorganizer(@Validated @RequestBody Organizer organizer) {
+    public ResponseEntity<Organizer> saveOrganizer(@Validated @RequestBody Organizer organizer) {
         return new ResponseEntity<>(organizerService.saveOrganizer(organizer), HttpStatus.CREATED);
     }
 
     @GetMapping("/organizers")
-    public ResponseEntity<Organizer> getorganizerByMailAndPassword(@Validated @RequestBody PersonCredentials personCredentials){
+    public ResponseEntity<Organizer> getOrganizerByMailAndPassword(@Validated @RequestBody PersonCredentials personCredentials){
         Optional<Organizer> organizer = organizerService.getOrganizerByMailAndPassword(personCredentials.getMail(), personCredentials.getPassword());
         if(organizer.isPresent()){
             return new ResponseEntity<>(organizer.get(), HttpStatus.FOUND);
@@ -32,7 +32,7 @@ public class OrganizerController {
     }
 
     @DeleteMapping("/organizers/{id}")
-    public ResponseEntity<HttpStatus> deleteorganizerById(@PathVariable("id") Long organizerId){
+    public ResponseEntity<HttpStatus> deleteOrganizerById(@PathVariable("id") Long organizerId){
         if(!organizerService.organizerExists(organizerId)){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -41,7 +41,7 @@ public class OrganizerController {
     }
 
     @PutMapping("/organizers/{id}")
-    public ResponseEntity<Organizer> updateorganizer( @Validated @RequestBody Organizer neworganizer, @PathVariable("id") Long organizerId){
+    public ResponseEntity<Organizer> updateOrganizer(@Validated @RequestBody Organizer neworganizer, @PathVariable("id") Long organizerId){
         Optional<Organizer> oldorganizer = organizerService.getOrganizerById(organizerId);
         if(oldorganizer.isPresent()){
             return new ResponseEntity<>(organizerService.updateOrganizer(oldorganizer.get(), neworganizer), HttpStatus.FOUND);

@@ -1,5 +1,6 @@
 import countries from "../country.json";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 const baseURL: string = "http://localhost:8090";
 
@@ -36,7 +37,9 @@ function isValidPassword(pass: string): boolean {
 
 
 function Login() {
-    //selectarea tarii
+    const navigate = useNavigate();
+
+    //select country
     const [selectedCountry, setSelectedCountry] = useState<string>('');
     const countriesDictionary: Record<string, CountryData> = {};
     countries.forEach((country: CountryData) => {
@@ -48,12 +51,14 @@ function Login() {
         </option>
     ));
 
+    //check inputs
     const [firstNameError, setFirstNameError] = useState<string>('');
     const [lastNameError, setLastNameError] = useState<string>('');
     const [emailError, setEmailError] = useState<string>('');
     const [passwordError, setPasswordError] = useState<string>('');
     const [phoneError, setPhoneError] = useState<string>('');
 
+    //login
     const handleSubmitLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -63,8 +68,9 @@ function Login() {
             mail: formData.get('mail')?.toString() || '',
             password: formData.get('password')?.toString() || ''
         };
+
+        //Log in
         if (user.mail !== '' && user.password !== '') {
-            //console.log(user);
             const response = await fetch(`${baseURL}/users?mail=${user.mail}&password=${user.password}`, {
                 method: 'GET',
                 headers: {
@@ -72,8 +78,13 @@ function Login() {
                 }
             });
             if (response.status !== 404) {
-                const userData = await response.json();
-                console.log(userData);
+                let userData = await response.json();
+                userData = { type: 'Participant', ...userData };
+                // console.log(userData);
+                //Save the date
+                localStorage.setItem('userData', JSON.stringify(userData));
+                //go home
+                navigate('/home');
             }
             else{
                 const response = await fetch(`${baseURL}/organizers?mail=${user.mail}&password=${user.password}`, {
@@ -83,8 +94,12 @@ function Login() {
                     }
                 });
                 if (response.status !== 404) {
-                    const userData = await response.json();
-                    console.log(userData);
+                    let userData = await response.json();
+                    userData = { type: 'Organiser', ...userData };
+                    //Save the date
+                    localStorage.setItem('userData', JSON.stringify(userData));
+                    //go home
+                    navigate('/home');
                 }
                 else{
                     const response = await fetch(`${baseURL}/volunteers?mail=${user.mail}&password=${user.password}`, {
@@ -94,8 +109,12 @@ function Login() {
                         }
                     });
                     if (response.status !== 404) {
-                        const userData = await response.json();
-                        console.log(userData);
+                        let userData = await response.json();
+                        userData = { type: 'Volunteers', ...userData };
+                        //Save the date
+                        localStorage.setItem('userData', JSON.stringify(userData));
+                        //go home
+                        navigate('/home');
                     }
                     else alert("Mail or password are wrong!");
                 }
@@ -112,6 +131,7 @@ function Login() {
         }
     };
 
+    //Create account
     const handleSubmitCreate = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -176,9 +196,8 @@ function Login() {
                                 if (!response.ok) {
                                     throw new Error(`HTTP error! Status: ${response.status}`);
                                 }
-                                else
-                                    console.log("mere");
-                            } else if (userType === 'Volunteer') {
+                            }
+                            else if (userType === 'Volunteer') {
                                 const response = await fetch(baseURL + '/volunteers', {
                                     method: 'POST',
                                     headers: {
@@ -189,10 +208,9 @@ function Login() {
                                 if (!response.ok) {
                                     throw new Error(`HTTP error! Status: ${response.status}`);
                                 }
-                                else
-                                    console.log("mere");
-                            } else if (userType === 'Organiser') {
-                                const response = await fetch(baseURL + '/organisers', {
+                            }
+                            else if (userType === 'Organiser') {
+                                const response = await fetch(baseURL + '/organizers', {
                                     method: 'POST',
                                     headers: {
                                         'Content-Type': 'application/json'

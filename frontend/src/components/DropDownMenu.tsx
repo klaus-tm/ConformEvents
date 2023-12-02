@@ -2,10 +2,10 @@ function DropDownMenu(){
     return (<div className="dropdown">
         <button className="dropbtn">Events</button>
         <div className="dropdown-content">
-            <a href="#">Meetings</a>
-            <a href="#">Concerts</a>
-            <a href="#">Plays</a>
-            <a href="#">Career Fairs</a>
+            <button className="btn-drop-down">Meetings</button>
+            <button className="btn-drop-down">Concerts</button>
+            <button className="btn-drop-down">Plays</button>
+            <button className="btn-drop-down">Career Fairs</button>
         </div>
     </div>);
 }

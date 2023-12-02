@@ -31,6 +31,6 @@ public class Volunteer {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String phone;
 }

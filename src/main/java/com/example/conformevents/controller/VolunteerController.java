@@ -10,7 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 public class VolunteerController {
     @Autowired
@@ -22,14 +22,20 @@ public class VolunteerController {
     }
 
     @GetMapping("/volunteers")
-    public ResponseEntity<Volunteer> getvolunteerByMailAndPassword(@Validated @RequestBody PersonCredentials personCredentials){
-        Optional<Volunteer> volunteer = volunteerService.getVolunteerByMailAndPassword(personCredentials.getMail(), personCredentials.getPassword());
+    public ResponseEntity<Volunteer> getvolunteerByMailAndPassword(@RequestParam String mail, @RequestParam String password){
+        Optional<Volunteer> volunteer = volunteerService.getVolunteerByMailAndPassword(mail, password);
         if(volunteer.isPresent()){
             return new ResponseEntity<>(volunteer.get(), HttpStatus.FOUND);
         }
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("/volunteers/{mail}")
+    public ResponseEntity<HttpStatus> checkVolunteerByMail(@PathVariable("mail") String volunteerMail){
+        if(!volunteerService.volunteerExistsByMail(volunteerMail))
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        else return new ResponseEntity<>(HttpStatus.FOUND);
+    }
     @DeleteMapping("/volunteers/{id}")
     public ResponseEntity<HttpStatus> deletevolunteerById(@PathVariable("id") Long volunteerId){
         if(!volunteerService.volunteerExists(volunteerId)){

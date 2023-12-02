@@ -21,6 +21,11 @@ public class OrganizerServiceImpl implements OrganizerService {
     }
 
     @Override
+    public Boolean organizerExistsByMail(String mail) {
+        return organizerRepository.existsByMail(mail);
+    }
+
+    @Override
     public Optional<Organizer> getOrganizerById(Long organizerId) {
         return organizerRepository.findById(organizerId);
     }

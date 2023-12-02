@@ -10,7 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 public class OrganizerController {
     
@@ -23,12 +23,19 @@ public class OrganizerController {
     }
 
     @GetMapping("/organizers")
-    public ResponseEntity<Organizer> getOrganizerByMailAndPassword(@Validated @RequestBody PersonCredentials personCredentials){
-        Optional<Organizer> organizer = organizerService.getOrganizerByMailAndPassword(personCredentials.getMail(), personCredentials.getPassword());
+    public ResponseEntity<Organizer> getOrganizerByMailAndPassword(@RequestParam String mail, @RequestParam String password){
+        Optional<Organizer> organizer = organizerService.getOrganizerByMailAndPassword(mail, password);
         if(organizer.isPresent()){
             return new ResponseEntity<>(organizer.get(), HttpStatus.FOUND);
         }
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/organizers/{mail}")
+    public ResponseEntity<HttpStatus> checkOrganizerByMail(@PathVariable("mail") String organizerMail){
+        if(!organizerService.organizerExistsByMail(organizerMail))
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        else return new ResponseEntity<>(HttpStatus.FOUND);
     }
 
     @DeleteMapping("/organizers/{id}")

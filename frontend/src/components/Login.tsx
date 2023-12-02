@@ -54,17 +54,52 @@ function Login() {
     const [passwordError, setPasswordError] = useState<string>('');
     const [phoneError, setPhoneError] = useState<string>('');
 
-    const handleSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmitLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
 
-        const email = formData.get('mail')?.toString() || '';
-        const password = formData.get('password')?.toString() || '';
-        if(email !== '' && password !== ''){
-            console.log(email, ' ', password);
-            //TODO apel catre back
-            //TODO go to home page
+        const user = {
+            mail: formData.get('mail')?.toString() || '',
+            password: formData.get('password')?.toString() || ''
+        };
+        if (user.mail !== '' && user.password !== '') {
+            //console.log(user);
+            const response = await fetch(`${baseURL}/users?mail=${user.mail}&password=${user.password}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (response.status !== 404) {
+                const userData = await response.json();
+                console.log(userData);
+            }
+            else{
+                const response = await fetch(`${baseURL}/organizers?mail=${user.mail}&password=${user.password}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                if (response.status !== 404) {
+                    const userData = await response.json();
+                    console.log(userData);
+                }
+                else{
+                    const response = await fetch(`${baseURL}/volunteers?mail=${user.mail}&password=${user.password}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    if (response.status !== 404) {
+                        const userData = await response.json();
+                        console.log(userData);
+                    }
+                    else alert("Mail or password are wrong!");
+                }
+            }
         }
     };
 
@@ -90,40 +125,93 @@ function Login() {
             password: formData.get('password')?.toString() || '',
             phone: countryPrefix + formData.get('phone')?.toString() || '',
         };
-
-        // console.log(user);
-        const userType = formData.get('btn')?.toString() || '';
-        const phoneNumber = formData.get('phone')?.toString() || '';
-        if (user.firstName !== '' && user.lastName !== '' && user.mail !== '' && user.password !== '') {
-            if (userType !== 'Participant' && (phoneNumber === ''))
-                alert('The phone number is mandatory.');
-            else {
-                if (userType === 'Participant') {
-                    const response = await fetch(`${baseURL}/users`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(user)
-                    });
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    else
-                        console.log("mere");
-                } else if (userType === 'Volunteer') {
-                    //TODO
-                } else if (userType === 'Organiser') {
-                    //TODO
-                }
+        //check mail exists
+        const response = await fetch(baseURL + '/users/' + user.mail, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
             }
-        } else alert('Name, email and password are mandatory.');
-    };
-    // const [showForgotPassword, setShowForgotPassword] = useState(true);
-    // const handleForgotPasswordClick = () => {
-    //     // Ascunde formularul de autentificare și arată altceva (de exemplu, formularul de resetare a parolei)
-    //     setShowForgotPassword(false);
-    // };
+        });
+        if (response.status !== 404) {
+            alert('The mail you provided is already used. Try a different one');
+        }
+        else {
+            const response = await fetch(baseURL + '/volunteers/' + user.mail, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (response.status !== 404) {
+                alert('The mail you provided is already used. Try a different one');
+            }
+            else{
+                const response = await fetch(baseURL + '/organizers/' + user.mail, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                if (response.status !== 404) {
+                    alert('The mail you provided is already used. Try a different one');
+                }
+                else{
+                    //Create account
+                    const userType = formData.get('btn')?.toString() || '';
+                    const phoneNumber = formData.get('phone')?.toString() || '';
+                    //Check if all is ok
+                    if (user.firstName !== '' && user.lastName !== '' && user.mail !== '' && user.password !== '') {
+                        if (userType !== 'Participant' && (phoneNumber === ''))
+                            alert('The phone number is mandatory.');
+                        else {
+                            //Create account
+                            if (userType === 'Participant') {
+                                const response = await fetch(baseURL + '/users', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(user)
+                                });
+                                if (!response.ok) {
+                                    throw new Error(`HTTP error! Status: ${response.status}`);
+                                }
+                                else
+                                    console.log("mere");
+                            } else if (userType === 'Volunteer') {
+                                const response = await fetch(baseURL + '/volunteers', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(user)
+                                });
+                                if (!response.ok) {
+                                    throw new Error(`HTTP error! Status: ${response.status}`);
+                                }
+                                else
+                                    console.log("mere");
+                            } else if (userType === 'Organiser') {
+                                const response = await fetch(baseURL + '/organisers', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(user)
+                                });
+                                if (!response.ok) {
+                                    throw new Error(`HTTP error! Status: ${response.status}`);
+                                }
+                                else
+                                    console.log("mere");
+                            }
+                        }
+                    }
+                    else alert('Name, email and password are mandatory.');
+                };
+            }
+        }
+    }
 
     return (
         // <div>

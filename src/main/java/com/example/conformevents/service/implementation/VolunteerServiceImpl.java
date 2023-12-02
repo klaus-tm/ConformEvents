@@ -20,6 +20,11 @@ public class VolunteerServiceImpl implements VolunteerService {
     }
 
     @Override
+    public Boolean volunteerExistsByMail(String mail) {
+        return VolunteerRepository.existsByMail(mail);
+    }
+
+    @Override
     public Optional<Volunteer> getVolunteerById(Long VolunteerId) {
         return VolunteerRepository.findById(VolunteerId);
     }

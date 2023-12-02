@@ -21,6 +21,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Boolean userExistsByMail(String mail) {
+        return userRepository.existsByMail(mail);
+    }
+
+    @Override
     public Optional<User> getUserById(Long userId) {
         return userRepository.findById(userId);
     }

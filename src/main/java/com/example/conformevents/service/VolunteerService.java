@@ -9,6 +9,8 @@ public interface VolunteerService {
 
     Optional<Volunteer> getVolunteerByMailAndPassword(String mail, String password);
 
+    Boolean volunteerExistsByMail(String mail);
+
     Optional<Volunteer> getVolunteerById(Long volunteerId);
 
     Volunteer saveVolunteer(Volunteer volunteer);

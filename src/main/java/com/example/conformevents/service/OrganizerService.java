@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface OrganizerService {
     Optional<Organizer> getOrganizerByMailAndPassword(String mail, String password);
+    Boolean organizerExistsByMail(String mail);
 
     Optional<Organizer> getOrganizerById(Long organizerId);
 

@@ -10,5 +10,5 @@ import java.util.Optional;
 @Repository
 public interface VolunteerRepository extends JpaRepository<Volunteer, Long> {
     Optional<Volunteer> findByMailAndPassword(String mail, String password);
-    Boolean existsByMailAndPassword(String mail, String password);
+    Boolean existsByMail(String mail);
 }

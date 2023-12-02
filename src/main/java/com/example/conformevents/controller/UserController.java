@@ -10,7 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 public class UserController {
     @Autowired
@@ -22,12 +22,19 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<User> getUserByMailAndPassword(@Validated @RequestBody PersonCredentials personCredentials){
-        Optional<User> user = userService.getUserByMailAndPassword(personCredentials.getMail(), personCredentials.getPassword());
+    public ResponseEntity<User> getUserByMailAndPassword(@RequestParam("mail") String mail, @RequestParam("password") String password){
+        Optional<User> user = userService.getUserByMailAndPassword(mail, password);
         if(user.isPresent()){
             return new ResponseEntity<>(user.get(), HttpStatus.FOUND);
         }
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/users/{mail}")
+    public ResponseEntity<HttpStatus> checkUserByMail(@PathVariable("mail") String userMail){
+        if(!userService.userExistsByMail(userMail))
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        else return new ResponseEntity<>(HttpStatus.FOUND);
     }
 
     @DeleteMapping("/users/{id}")

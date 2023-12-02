@@ -11,5 +11,5 @@ import java.util.Optional;
 public interface OrganizerRepository extends JpaRepository<Organizer, Long> {
 
     Optional<Organizer> findByMailAndPassword(String mail, String password);
-    Boolean existsByMailAndPassword(String mail, String password);
+    Boolean existsByMail(String mail);
 }

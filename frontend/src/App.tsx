@@ -5,8 +5,8 @@ import './style/login.css';
 
 import {useState} from "react";
 
-import Logo from "./components/headerComponents/Logo.tsx";
-import DropDownMenu from "./components/headerComponents/DropDownMenu.tsx";
+import Logo from "./components/Logo.tsx";
+import DropDownMenu from "./components/DropDownMenu.tsx";
 import Home from "./components/Home.tsx";
 import Login from "./components/Login.tsx";
 

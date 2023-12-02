@@ -1,0 +1,786 @@
+[
+  {
+    "prefix": "93",
+    "country": "Afghanistan"
+  },
+  {
+    "prefix": "355",
+    "country": "Albania"
+  },
+  {
+    "prefix": "213",
+    "country": "Algeria"
+  },
+  {
+    "prefix": "376",
+    "country": "Andorra"
+  },
+  {
+    "prefix": "244",
+    "country": "Angola"
+  },
+  {
+    "prefix": "1-268",
+    "country": "Antigua and Barbuda"
+  },
+  {
+    "prefix": "54",
+    "country": "Argentina"
+  },
+  {
+    "prefix": "374",
+    "country": "Armenia"
+  },
+  {
+    "prefix": "61",
+    "country": "Australia"
+  },
+  {
+    "prefix": "43",
+    "country": "Austria"
+  },
+  {
+    "prefix": "994",
+    "country": "Azerbaijan"
+  },
+  {
+    "prefix": "1-242",
+    "country": "Bahamas "
+  },
+  {
+    "prefix": "973",
+    "country": "Bahrain"
+  },
+  {
+    "prefix": "880",
+    "country": "Bangladesh"
+  },
+  {
+    "prefix": "1-246",
+    "country": "Barbados"
+  },
+  {
+    "prefix": "375",
+    "country": "Belarus"
+  },
+  {
+    "prefix": "32",
+    "country": "Belgium"
+  },
+  {
+    "prefix": "501",
+    "country": "Belize"
+  },
+  {
+    "prefix": "229",
+    "country": "Benin"
+  },
+  {
+    "prefix": "975",
+    "country": "Bhutan"
+  },
+  {
+    "prefix": "591",
+    "country": "Bolivia (Plurinational State of)"
+  },
+  {
+    "prefix": "387",
+    "country": "Bosnia and Herzegovina"
+  },
+  {
+    "prefix": "267",
+    "country": "Botswana"
+  },
+  {
+    "prefix": "55",
+    "country": "Brazil"
+  },
+  {
+    "prefix": "673",
+    "country": "Brunei Darussalam"
+  },
+  {
+    "prefix": "359",
+    "country": "Bulgaria"
+  },
+  {
+    "prefix": "226",
+    "country": "Burkina Faso"
+  },
+  {
+    "prefix": "257",
+    "country": "Burundi"
+  },
+  {
+    "prefix": "238",
+    "country": "Cabo Verde"
+  },
+  {
+    "prefix": "855",
+    "country": "Cambodia"
+  },
+  {
+    "prefix": "237",
+    "country": "Cameroon"
+  },
+  {
+    "prefix": "1",
+    "country": "Canada"
+  },
+  {
+    "prefix": "236",
+    "country": "Central African Republic"
+  },
+  {
+    "prefix": "235",
+    "country": "Chad"
+  },
+  {
+    "prefix": "56",
+    "country": "Chile"
+  },
+  {
+    "prefix": "86",
+    "country": "China"
+  },
+  {
+    "prefix": "57",
+    "country": "Colombia"
+  },
+  {
+    "prefix": "269",
+    "country": "Comoros "
+  },
+  {
+    "prefix": "242",
+    "country": "Congo "
+  },
+  {
+    "prefix": "682",
+    "country": "Cook Islands"
+  },
+  {
+    "prefix": "506",
+    "country": "Costa Rica"
+  },
+  {
+    "prefix": "385",
+    "country": "Croatia"
+  },
+  {
+    "prefix": "53",
+    "country": "Cuba"
+  },
+  {
+    "prefix": "357",
+    "country": "Cyprus"
+  },
+  {
+    "prefix": "420",
+    "country": "Czech Republic"
+  },
+  {
+    "prefix": "225",
+    "country": "Côte d'Ivoire"
+  },
+  {
+    "prefix": "850",
+    "country": "Democratic People's Republic of Korea "
+  },
+  {
+    "prefix": "243",
+    "country": "Democratic Republic of the Congo"
+  },
+  {
+    "prefix": "45",
+    "country": "Denmark"
+  },
+  {
+    "prefix": "253",
+    "country": "Djibouti"
+  },
+  {
+    "prefix": "1-767",
+    "country": "Dominica"
+  },
+  {
+    "prefix": "1-809",
+    "country": "Dominican Republic"
+  },
+  {
+    "prefix": "593",
+    "country": "Ecuador"
+  },
+  {
+    "prefix": "20",
+    "country": "Egypt"
+  },
+  {
+    "prefix": "503",
+    "country": "El Salvador"
+  },
+  {
+    "prefix": "240",
+    "country": "Equatorial Guinea"
+  },
+  {
+    "prefix": "291",
+    "country": "Eritrea"
+  },
+  {
+    "prefix": "372",
+    "country": "Estonia"
+  },
+  {
+    "prefix": "251",
+    "country": "Ethiopia"
+  },
+  {
+    "prefix": "679",
+    "country": "Fiji"
+  },
+  {
+    "prefix": "358",
+    "country": "Finland"
+  },
+  {
+    "prefix": "33",
+    "country": "France"
+  },
+  {
+    "prefix": "241",
+    "country": "Gabon"
+  },
+  {
+    "prefix": "220",
+    "country": "Gambia"
+  },
+  {
+    "prefix": "995",
+    "country": "Georgia"
+  },
+  {
+    "prefix": "49",
+    "country": "Germany"
+  },
+  {
+    "prefix": "233",
+    "country": "Ghana"
+  },
+  {
+    "prefix": "30",
+    "country": "Greece"
+  },
+  {
+    "prefix": "1-473",
+    "country": "Grenada"
+  },
+  {
+    "prefix": "502",
+    "country": "Guatemala"
+  },
+  {
+    "prefix": "224",
+    "country": "Guinea"
+  },
+  {
+    "prefix": "245",
+    "country": "Guinea-Bissau"
+  },
+  {
+    "prefix": "592",
+    "country": "Guyana"
+  },
+  {
+    "prefix": "509",
+    "country": "Haiti"
+  },
+  {
+    "prefix": "39-06",
+    "country": "Holy See"
+  },
+  {
+    "prefix": "504",
+    "country": "Honduras"
+  },
+  {
+    "prefix": "36",
+    "country": "Hungary"
+  },
+  {
+    "prefix": "354",
+    "country": "Iceland"
+  },
+  {
+    "prefix": "91",
+    "country": "India"
+  },
+  {
+    "prefix": "62",
+    "country": "Indonesia"
+  },
+  {
+    "prefix": "98",
+    "country": "Iran (Islamic Republic of)"
+  },
+  {
+    "prefix": "964",
+    "country": "Iraq"
+  },
+  {
+    "prefix": "353",
+    "country": "Ireland"
+  },
+  {
+    "prefix": "972",
+    "country": "Israel"
+  },
+  {
+    "prefix": "39",
+    "country": "Italy"
+  },
+  {
+    "prefix": "1-876",
+    "country": "Jamaica"
+  },
+  {
+    "prefix": "81",
+    "country": "Japan"
+  },
+  {
+    "prefix": "962",
+    "country": "Jordan"
+  },
+  {
+    "prefix": "7",
+    "country": "Kazakhstan"
+  },
+  {
+    "prefix": "254",
+    "country": "Kenya"
+  },
+  {
+    "prefix": "686",
+    "country": "Kiribati"
+  },
+  {
+    "prefix": "965",
+    "country": "Kuwait"
+  },
+  {
+    "prefix": "996",
+    "country": "Kyrgyzstan"
+  },
+  {
+    "prefix": "856",
+    "country": "Lao People's Democratic Republic"
+  },
+  {
+    "prefix": "371",
+    "country": "Latvia"
+  },
+  {
+    "prefix": "961",
+    "country": "Lebanon"
+  },
+  {
+    "prefix": "266",
+    "country": "Lesotho"
+  },
+  {
+    "prefix": "231",
+    "country": "Liberia"
+  },
+  {
+    "prefix": "218",
+    "country": "Libya"
+  },
+  {
+    "prefix": "423",
+    "country": "Liechtenstein"
+  },
+  {
+    "prefix": "370",
+    "country": "Lithuania"
+  },
+  {
+    "prefix": "352",
+    "country": "Luxembourg"
+  },
+  {
+    "prefix": "261",
+    "country": "Madagascar"
+  },
+  {
+    "prefix": "265",
+    "country": "Malawi"
+  },
+  {
+    "prefix": "60",
+    "country": "Malaysia"
+  },
+  {
+    "prefix": "960",
+    "country": "Maldives"
+  },
+  {
+    "prefix": "223",
+    "country": "Mali"
+  },
+  {
+    "prefix": "356",
+    "country": "Malta"
+  },
+  {
+    "prefix": "692",
+    "country": "Marshall Islands"
+  },
+  {
+    "prefix": "222",
+    "country": "Mauritania"
+  },
+  {
+    "prefix": "230",
+    "country": "Mauritius"
+  },
+  {
+    "prefix": "52",
+    "country": "Mexico"
+  },
+  {
+    "prefix": "691",
+    "country": "Micronesia (Federated States of)"
+  },
+  {
+    "prefix": "377",
+    "country": "Monaco"
+  },
+  {
+    "prefix": "976",
+    "country": "Mongolia"
+  },
+  {
+    "prefix": "382",
+    "country": "Montenegro"
+  },
+  {
+    "prefix": "212",
+    "country": "Morocco"
+  },
+  {
+    "prefix": "258",
+    "country": "Mozambique"
+  },
+  {
+    "prefix": "95",
+    "country": "Myanmar"
+  },
+  {
+    "prefix": "264",
+    "country": "Namibia"
+  },
+  {
+    "prefix": "674",
+    "country": "Nauru"
+  },
+  {
+    "prefix": "{977}",
+    "country": "Nepal"
+  },
+  {
+    "prefix": "31",
+    "country": "Netherlands"
+  },
+  {
+    "prefix": "64",
+    "country": "New Zealand"
+  },
+  {
+    "prefix": "505",
+    "country": "Nicaragua"
+  },
+  {
+    "prefix": "227",
+    "country": "Niger"
+  },
+  {
+    "prefix": "234",
+    "country": "Nigeria"
+  },
+  {
+    "prefix": "683",
+    "country": "Niue"
+  },
+  {
+    "prefix": "47",
+    "country": "Norway"
+  },
+  {
+    "prefix": "968",
+    "country": "Oman"
+  },
+  {
+    "prefix": "92",
+    "country": "Pakistan"
+  },
+  {
+    "prefix": "680",
+    "country": "Palau"
+  },
+  {
+    "prefix": "507",
+    "country": "Panama"
+  },
+  {
+    "prefix": "675",
+    "country": "Papua New Guinea"
+  },
+  {
+    "prefix": "595",
+    "country": "Paraguay"
+  },
+  {
+    "prefix": "51",
+    "country": "Peru"
+  },
+  {
+    "prefix": "63",
+    "country": "Philippines"
+  },
+  {
+    "prefix": "48",
+    "country": "Poland"
+  },
+  {
+    "prefix": "351",
+    "country": "Portugal"
+  },
+  {
+    "prefix": "974",
+    "country": "Qatar"
+  },
+  {
+    "prefix": "82",
+    "country": "Republic of Korea"
+  },
+  {
+    "prefix": "373",
+    "country": "Republic of Moldova"
+  },
+  {
+    "prefix": "40",
+    "country": "Romania"
+  },
+  {
+    "prefix": "7",
+    "country": "Russian Federation"
+  },
+  {
+    "prefix": "250",
+    "country": "Rwanda"
+  },
+  {
+    "prefix": "1-869",
+    "country": "Saint Kitts and Nevis"
+  },
+  {
+    "prefix": "1-758",
+    "country": "Saint Lucia"
+  },
+  {
+    "prefix": "1-784",
+    "country": "Saint Vincent and the Grenadines"
+  },
+  {
+    "prefix": "685",
+    "country": "Samoa"
+  },
+  {
+    "prefix": "378",
+    "country": "San Marino"
+  },
+  {
+    "prefix": "239",
+    "country": "Sao Tome and Principe"
+  },
+  {
+    "prefix": "966",
+    "country": "Saudi Arabia"
+  },
+  {
+    "prefix": "221",
+    "country": "Senegal"
+  },
+  {
+    "prefix": "381",
+    "country": "Serbia"
+  },
+  {
+    "prefix": "248",
+    "country": "Seychelles"
+  },
+  {
+    "prefix": "232",
+    "country": "Sierra Leone"
+  },
+  {
+    "prefix": "65",
+    "country": "Singapore"
+  },
+  {
+    "prefix": "421",
+    "country": "Slovakia"
+  },
+  {
+    "prefix": "386",
+    "country": "Slovenia"
+  },
+  {
+    "prefix": "677",
+    "country": "Solomon Islands"
+  },
+  {
+    "prefix": "252",
+    "country": "Somalia"
+  },
+  {
+    "prefix": "27",
+    "country": "South Africa"
+  },
+  {
+    "prefix": "211",
+    "country": "South Sudan"
+  },
+  {
+    "prefix": "34",
+    "country": "Spain"
+  },
+  {
+    "prefix": "94",
+    "country": "Sri Lanka"
+  },
+  {
+    "prefix": "970",
+    "country": "State of Palestine"
+  },
+  {
+    "prefix": "249",
+    "country": "Sudan"
+  },
+  {
+    "prefix": "597",
+    "country": "Suriname"
+  },
+  {
+    "prefix": "46",
+    "country": "Sweden"
+  },
+  {
+    "prefix": "41",
+    "country": "Switzerland"
+  },
+  {
+    "prefix": "963",
+    "country": "Syrian Arab Republic"
+  },
+  {
+    "prefix": "992",
+    "country": "Tajikistan"
+  },
+  {
+    "prefix": "66",
+    "country": "Thailand"
+  },
+  {
+    "prefix": "389",
+    "country": "Republic of Macedonia"
+  },
+  {
+    "prefix": "670",
+    "country": "Timor-Leste"
+  },
+  {
+    "prefix": "228",
+    "country": "Togo"
+  },
+  {
+    "prefix": "676",
+    "country": "Tonga"
+  },
+  {
+    "prefix": "1-868",
+    "country": "Trinidad and Tobago"
+  },
+  {
+    "prefix": "216",
+    "country": "Tunisia"
+  },
+  {
+    "prefix": "90",
+    "country": "Turkey"
+  },
+  {
+    "prefix": "993",
+    "country": "Turkmenistan"
+  },
+  {
+    "prefix": "688",
+    "country": "Tuvalu"
+  },
+  {
+    "prefix": "256",
+    "country": "Uganda"
+  },
+  {
+    "prefix": "380",
+    "country": "Ukraine"
+  },
+  {
+    "prefix": "971",
+    "country": "United Arab Emirates"
+  },
+  {
+    "prefix": "44",
+    "country": "United Kingdom of Great Britain and Northern Ireland"
+  },
+  {
+    "prefix": "255",
+    "country": "United Republic of Tanzania"
+  },
+  {
+    "prefix": "1",
+    "country": "United States of America"
+  },
+  {
+    "prefix": "598",
+    "country": "Uruguay"
+  },
+  {
+    "prefix": "998",
+    "country": "Uzbekistan"
+  },
+  {
+    "prefix": "678",
+    "country": "Vanuatu"
+  },
+  {
+    "prefix": "58",
+    "country": "Venezuela (Bolivarian Republic of)"
+  },
+  {
+    "prefix": "84",
+    "country": "Viet Nam"
+  },
+  {
+    "prefix": "967",
+    "country": "Yemen"
+  },
+  {
+    "prefix": "260",
+    "country": "Zambia"
+  },
+  {
+    "prefix": "263",
+    "country": "Zimbabwe"
+  }
+]

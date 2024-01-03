@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function Logo() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     // get the date
     const storedUserData = localStorage.getItem('userData');
@@ -9,12 +9,12 @@ function Logo() {
     // Define the destination URL based on the presence of user data
     const destinationURL = storedUserData ? '/home' : '/';
 
-    const handleLogout = () => {
-        // Remove user data from localStorage
-        localStorage.removeItem('userData');
-        // Navigate to the Home page
-        navigate('/');
-    };
+    // const handleLogout = () => {
+    //     // Remove user data from localStorage
+    //     localStorage.removeItem('userData');
+    //     // Navigate to the Home page
+    //     navigate('/');
+    // };
 
     return (
         <div className="logo">

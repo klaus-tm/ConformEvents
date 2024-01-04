@@ -10,7 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface EventRepository extends JpaRepository<Event, Long> {
-    Optional<List<Event>> findEventByType(String eventType);
-
     Optional<List<Event>> findEventByOrganizer(Organizer organizer);
 }

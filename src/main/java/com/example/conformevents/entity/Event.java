@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 
 @Entity
 @Data
@@ -27,28 +28,25 @@ public class Event {
     private LocalDate date;
 
     @Column
-    private LocalTime time;
+    private String startHours;
 
     @Column
-    private String type;
+    private String cityRegion;
 
     @Column
-    private String location;
+    private Date registerLimit;
 
     @Column
-    private byte locationType;
-
-    @Column
-    private Integer ticketsNumber;
+    private String raceMap;
 
     @Column
     private Integer volunteersNumber;
 
     @Column
-    private String ticketPrices;
+    private String racePrices;
 
     @Column
-    private String ticketTypes;
+    private String raceTypes;
 
     @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "organizerId", updatable = false)

@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EventService {
-    Optional<List<Event>> getEventsByType(String eventType);
 
     Optional<List<Event>> getEventsByOrganiser(Organizer organizer);
 

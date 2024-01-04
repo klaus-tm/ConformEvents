@@ -17,11 +17,6 @@ public class EventServiceImpl implements EventService {
     private EventRepository eventRepository;
 
     @Override
-    public Optional<List<Event>> getEventsByType(String eventType) {
-        return eventRepository.findEventByType(eventType);
-    }
-
-    @Override
     public Optional<List<Event>> getEventsByOrganiser(Organizer organizer) {
         return eventRepository.findEventByOrganizer(organizer);
     }
@@ -43,34 +38,32 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public Event updateEvent(Event oldEvent, Event newEvent) {
-        if(Objects.nonNull(oldEvent.getName()) && !"".equals(newEvent.getName()))
+        if (Objects.nonNull(oldEvent.getName()) && !"".equals(newEvent.getName()))
             oldEvent.setName(newEvent.getName());
 
-        if(Objects.nonNull(oldEvent.getDate()) && Objects.nonNull(newEvent.getDate()))
+        if (Objects.nonNull(oldEvent.getDate()) && Objects.nonNull(newEvent.getDate()))
             oldEvent.setDate(newEvent.getDate());
 
-        if(Objects.nonNull(oldEvent.getTime()) && Objects.nonNull(newEvent.getTime()))
-            oldEvent.setTime(newEvent.getTime());
+        if (Objects.nonNull(oldEvent.getStartHours()) && !"".equals(newEvent.getStartHours()))
+            oldEvent.setStartHours(newEvent.getStartHours());
 
-        if(Objects.nonNull(oldEvent.getLocation()) && !"".equals(newEvent.getLocation()))
-            oldEvent.setLocation(newEvent.getLocation());
+        if (Objects.nonNull(oldEvent.getCityRegion()) && !"".equals(newEvent.getCityRegion()))
+            oldEvent.setCityRegion(newEvent.getCityRegion());
 
-        if(Objects.nonNull(oldEvent.getTicketsNumber()) && Objects.nonNull(newEvent.getTicketsNumber()))
-            oldEvent.setTicketsNumber(newEvent.getTicketsNumber());
+        if (Objects.nonNull(oldEvent.getRegisterLimit()) && Objects.nonNull(newEvent.getRegisterLimit()))
+            oldEvent.setRegisterLimit(newEvent.getRegisterLimit());
 
-        if(Objects.nonNull(oldEvent.getVolunteersNumber()) && Objects.nonNull(newEvent.getVolunteersNumber()))
+        if (Objects.nonNull(oldEvent.getRaceMap()) && !"".equals(newEvent.getRaceMap()))
+            oldEvent.setRaceMap(newEvent.getRaceMap());
+
+        if (Objects.nonNull(oldEvent.getVolunteersNumber()) && Objects.nonNull(newEvent.getVolunteersNumber()))
             oldEvent.setVolunteersNumber(newEvent.getVolunteersNumber());
 
-        if(Objects.nonNull(oldEvent.getTicketPrices()) && !"".equals(newEvent.getTicketPrices()))
-            oldEvent.setTicketPrices(newEvent.getTicketPrices());
+        if (Objects.nonNull(oldEvent.getRacePrices()) && !"".equals(newEvent.getRacePrices()))
+            oldEvent.setRacePrices(newEvent.getRacePrices());
 
-        if(Objects.nonNull(oldEvent.getTicketTypes()) && !"".equals(newEvent.getTicketTypes()))
-            oldEvent.setTicketTypes(newEvent.getTicketTypes());
-
-        if(Objects.nonNull(oldEvent.getType()) && !"".equals(newEvent.getType()))
-            oldEvent.setType(newEvent.getType());
-
-        oldEvent.setLocationType(newEvent.getLocationType());
+        if (Objects.nonNull(oldEvent.getRaceTypes()) && !"".equals(newEvent.getRaceTypes()))
+            oldEvent.setRaceTypes(newEvent.getRaceTypes());
 
         return saveEvent(oldEvent);
     }

@@ -22,13 +22,6 @@ public class EventController {
         return new ResponseEntity<>(eventService.saveEvent(event), HttpStatus.CREATED);
     }
 
-    @GetMapping("/events/types/{eventType}")
-    public ResponseEntity<List<Event>> getEventsByType(@PathVariable("eventType") String eventType){
-        if(eventService.getEventsByType(eventType).isPresent())
-            return new ResponseEntity<>(eventService.getEventsByType(eventType).get(), HttpStatus.FOUND);
-        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
     @GetMapping("/events")
     public ResponseEntity<List<Event>> getEventsByOranizer(@Validated @RequestBody Organizer organizer){
         if(eventService.getEventsByOrganiser(organizer).isPresent())

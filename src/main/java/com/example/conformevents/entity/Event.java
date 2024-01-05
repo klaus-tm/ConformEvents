@@ -48,6 +48,9 @@ public class Event {
     @Column
     private String raceTypes;
 
+    @Column
+    private String description;
+
     @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "organizerId", updatable = false)
     private Organizer organizer;

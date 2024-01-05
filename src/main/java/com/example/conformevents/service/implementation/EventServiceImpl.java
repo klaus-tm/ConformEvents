@@ -65,6 +65,9 @@ public class EventServiceImpl implements EventService {
         if (Objects.nonNull(oldEvent.getRaceTypes()) && !"".equals(newEvent.getRaceTypes()))
             oldEvent.setRaceTypes(newEvent.getRaceTypes());
 
+        if (Objects.nonNull(oldEvent.getDescription()) && !"".equals(newEvent.getDescription()))
+            oldEvent.setDescription(newEvent.getDescription());
+
         return saveEvent(oldEvent);
     }
 

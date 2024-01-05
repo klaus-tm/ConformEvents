@@ -8,7 +8,6 @@ function UserHome() {
     // get the date
     const storedUserData = localStorage.getItem('userData');
     console.log(storedUserData);
-
     if (storedUserData) {
         const userData = JSON.parse(storedUserData);
         if(userData.type === 'Organiser')
@@ -16,6 +15,7 @@ function UserHome() {
                 Create a new event
             </a>;
     }
+
     return <div>
         <header className="col-12">
             <Logo />

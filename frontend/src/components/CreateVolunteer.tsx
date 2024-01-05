@@ -128,7 +128,7 @@ function CreateVolunteer() {
 
     return (
         <div className="create-account-form">
-            <p className="title-form">Participate!</p>
+            <p className="title-form">Lead a hand!</p>
             <form className="form" onSubmit={handleSubmitCreate}>
                 <span className="required">Marked inputs are mandatory.</span>
                 <div className="label-input">

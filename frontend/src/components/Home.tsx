@@ -1,5 +1,5 @@
 import Logo from "./Logo.tsx";
-import Login from "./Login.tsx";
+import LoginForm from "./LoginForm.tsx";
 import { useState } from "react";
 import HomeImg from "./HomeImg.tsx";
 import DropDownMenu from "./DropDownMenu.tsx";
@@ -30,7 +30,9 @@ const Home: React.FC = () => {
                     </nav>
                 )}
             </header>
-            {showLogin ? <Login /> : <HomeImg />}
+            <main>
+                {showLogin ? <LoginForm /> : <HomeImg />}
+            </main>
         </div>
     );
 };

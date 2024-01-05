@@ -1,0 +1,79 @@
+/*container used ONLY in LogOut and UserHome*/
+.home-cards-container {
+    /*margin: 50px 40px 10px 40px;*/
+    margin: 10px 40px 10px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 10px;
+    background-color: var(--bg-color);
+}
+
+/* Small card details */
+.sm-card {
+    width: 400px;
+    height: 250px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    background: var(--bg-color);
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid var(--form-input);
+    transition: 0.5s ease-out;
+    overflow: visible;
+    color: var(--black);
+    gap: 5px;
+    display: grid;
+    place-content: center;
+}
+
+.sm-card-location {
+    color: var(--text-color);
+}
+
+.sm-card-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sm-card-button {
+    transform: translate(-50%, 125%);
+    width: 60%;
+    border-radius: 1rem;
+    border: none;
+    background-color: var(--accent-secundary);
+    color: var(--bg-color);
+    font-size: 16px;
+    padding: 8px 16px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.3s ease-out;
+}
+
+.sm-card:hover {
+    border-color: var(--accent-secundary);
+    box-shadow: 0 4px 18px 0 var(--box-shadow);
+}
+
+.sm-card:hover .sm-card-button {
+    transform: translate(-50%, 50%);
+    opacity: 1;
+}
+
+.big-card{
+    width: 700px;
+    height: 600px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    background: var(--bg-color);
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid var(--form-input);
+    transition: 0.5s ease-out;
+    overflow: visible;
+    color: var(--black);
+    gap: 5px;
+    display: grid;
+    place-content: center;
+}

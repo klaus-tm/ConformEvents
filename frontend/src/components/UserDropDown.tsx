@@ -11,7 +11,7 @@ function UserDropDown() {
 
     // get the date
     const storedUserData = localStorage.getItem('userData');
-    console.log(storedUserData);
+    // console.log(storedUserData);
 
     if (storedUserData) {
         const userData = JSON.parse(storedUserData);

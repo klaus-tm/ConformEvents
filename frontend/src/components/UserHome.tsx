@@ -1,13 +1,16 @@
 import Logo from "./Logo.tsx";
-import HomeImg from "./HomeImg.tsx";
+// import HomeImg from "./HomeImg.tsx";
 import UserDropDown from "./UserDropDown.tsx";
+// import React from "react";
+import CardsContainer from "./CardsContainer.tsx";
+import Message from "./Message.tsx";
 
 function UserHome() {
     let org = null;
-
     // get the date
     const storedUserData = localStorage.getItem('userData');
-    console.log(storedUserData);
+    const storedEventData = localStorage.getItem('event');
+    // console.log(storedUserData);
     if (storedUserData) {
         const userData = JSON.parse(storedUserData);
         if(userData.type === 'Organiser')
@@ -30,7 +33,12 @@ function UserHome() {
                     </ul>
                 </nav>
         </header>
-        <HomeImg />
+        <main className="col-12">
+            <Message />
+            {/*<HomeImg />*/}
+            {/*<br/>*/}
+            <CardsContainer jsonData={storedEventData}/>
+        </main>
     </div>;
 }
 

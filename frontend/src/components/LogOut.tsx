@@ -1,5 +1,5 @@
 import Logo from "./Logo.tsx";
-import Login from "./Login.tsx";
+import LoginForm from "./LoginForm.tsx";
 import React, { useState } from "react";
 import HomeImg from "./HomeImg.tsx";
 import CreateOrganizator from "./CreateOrganizator.tsx";
@@ -62,7 +62,7 @@ const LogOut: React.FC = () => {
                 </nav>
             </header>
             {showLogin ? (
-                <Login />
+                <LoginForm />
             ) : showOrg ? (
                 <CreateOrganizator />
             ) : showVool ? (

@@ -3,7 +3,7 @@ import '../style/form.css';
 
 const baseURL: string = "http://localhost:8090";
 
-function Login() {
+function LoginForm() {
     const navigate = useNavigate();
     //login
     const handleSubmitLogin = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -91,4 +91,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default LoginForm;

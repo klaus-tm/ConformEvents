@@ -24,7 +24,7 @@ html {
 }
 
 main {
-    padding-top: 110px;
+    margin-top: 101px;
     background-color: var(--bg-color);
 }
 
@@ -32,5 +32,4 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    /*height: 100vh;*/
 }

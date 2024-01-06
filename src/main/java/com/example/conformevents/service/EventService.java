@@ -8,6 +8,8 @@ import java.util.Optional;
 
 public interface EventService {
 
+    List<Event> findAllEvents();
+
     Optional<List<Event>> getEventsByOrganiser(Organizer organizer);
 
     Optional<Event> getEventById(Long eventId);

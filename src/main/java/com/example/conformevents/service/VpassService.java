@@ -17,6 +17,10 @@ public interface VpassService {
 
     void deleteVpassById(Long vpassId);
 
+    void deleteVpassesByEvent(Event event);
+
+    void deleteVpassesByVolunteer(Volunteer volunteer);
+
     Boolean vpassExists(Long vpassId);
 
 }

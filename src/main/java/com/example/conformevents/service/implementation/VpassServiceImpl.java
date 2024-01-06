@@ -42,6 +42,16 @@ public class VpassServiceImpl implements VpassService {
     }
 
     @Override
+    public void deleteVpassesByEvent(Event event) {
+        vpassRepository.deleteAllByEvent(event);
+    }
+
+    @Override
+    public void deleteVpassesByVolunteer(Volunteer volunteer) {
+        vpassRepository.deleteAllByVolunteer(volunteer);
+    }
+
+    @Override
     public Boolean vpassExists(Long vpassId) {
         return vpassRepository.existsById(vpassId);
     }

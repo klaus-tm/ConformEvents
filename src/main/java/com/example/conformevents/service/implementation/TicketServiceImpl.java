@@ -42,6 +42,16 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
+    public void deleteTicketsByEvent(Event event) {
+        ticketRepository.deleteAllByEvent(event);
+    }
+
+    @Override
+    public void deleteTicketsByUser(User user) {
+        ticketRepository.deleteAllByUser(user);
+    }
+
+    @Override
     public Boolean ticketExists(Long ticketId) {
         return ticketRepository.existsById(ticketId);
     }

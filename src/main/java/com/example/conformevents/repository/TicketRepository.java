@@ -14,4 +14,8 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     Optional<List<Ticket>> findTicketsByEvent(Event event);
 
     Optional<List<Ticket>> findTicketsByUser(User user);
+
+    void deleteAllByEvent(Event event);
+
+    void deleteAllByUser(User user);
 }

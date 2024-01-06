@@ -17,6 +17,11 @@ public class EventServiceImpl implements EventService {
     private EventRepository eventRepository;
 
     @Override
+    public List<Event> findAllEvents() {
+        return eventRepository.findAll();
+    }
+
+    @Override
     public Optional<List<Event>> getEventsByOrganiser(Organizer organizer) {
         return eventRepository.findEventByOrganizer(organizer);
     }

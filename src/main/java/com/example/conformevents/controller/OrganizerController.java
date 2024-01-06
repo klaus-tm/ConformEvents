@@ -23,7 +23,7 @@ public class OrganizerController {
     }
 
     @GetMapping("/organizers")
-    public ResponseEntity<Organizer> getOrganizerByMailAndPassword(@RequestParam String mail, @RequestParam String password){
+    public ResponseEntity<Organizer> getOrganizerByMailAndPassword(@RequestParam("mail") String mail, @RequestParam("password") String password){
         Optional<Organizer> organizer = organizerService.getOrganizerByMailAndPassword(mail, password);
         if(organizer.isPresent()){
             return new ResponseEntity<>(organizer.get(), HttpStatus.FOUND);

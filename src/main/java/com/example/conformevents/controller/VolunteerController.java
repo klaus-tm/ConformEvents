@@ -22,7 +22,7 @@ public class VolunteerController {
     }
 
     @GetMapping("/volunteers")
-    public ResponseEntity<Volunteer> getvolunteerByMailAndPassword(@RequestParam String mail, @RequestParam String password){
+    public ResponseEntity<Volunteer> getvolunteerByMailAndPassword(@RequestParam("mail") String mail, @RequestParam("password") String password){
         Optional<Volunteer> volunteer = volunteerService.getVolunteerByMailAndPassword(mail, password);
         if(volunteer.isPresent()){
             return new ResponseEntity<>(volunteer.get(), HttpStatus.FOUND);

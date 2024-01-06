@@ -3,6 +3,7 @@ package com.example.conformevents.controller;
 import com.example.conformevents.entity.Event;
 import com.example.conformevents.entity.Organizer;
 import com.example.conformevents.service.EventService;
+import com.example.conformevents.service.OrganizerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,16 +18,27 @@ import java.util.Optional;
 public class EventController {
     @Autowired
     private EventService eventService;
+    @Autowired
+    private OrganizerService organizerService;
+
     @PostMapping("/events")
     public ResponseEntity<Event> addEvent(@Validated @RequestBody Event event){
         return new ResponseEntity<>(eventService.saveEvent(event), HttpStatus.CREATED);
     }
 
+    @GetMapping("/events/all")
+    public ResponseEntity<List<Event>> getAllEvents(){
+        return new ResponseEntity<>(eventService.findAllEvents(), HttpStatus.OK);
+    }
+
     @GetMapping("/events")
-    public ResponseEntity<List<Event>> getEventsByOranizer(@Validated @RequestBody Organizer organizer){
-        if(eventService.getEventsByOrganiser(organizer).isPresent())
-            return new ResponseEntity<>(eventService.getEventsByOrganiser(organizer).get(), HttpStatus.FOUND);
-        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<List<Event>> getEventsByOranizer(@RequestParam("organizer") Long id){
+        Optional<Organizer> organizer = organizerService.getOrganizerById(id);
+        if(organizer.isPresent()){
+            if(eventService.getEventsByOrganiser(organizer.get()).isPresent())
+                return new ResponseEntity<>(eventService.getEventsByOrganiser(organizer.get()).get(), HttpStatus.FOUND);
+            else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/events/{id}")

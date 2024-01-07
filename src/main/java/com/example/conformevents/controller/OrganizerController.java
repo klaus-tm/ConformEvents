@@ -17,11 +17,13 @@ public class OrganizerController {
     @Autowired
     private OrganizerService organizerService;
 
+    //method: POST, link: baseURL + "/organizers", body: organizer in a json, receive: 201
     @PostMapping("/organizers")
     public ResponseEntity<Organizer> saveOrganizer(@Validated @RequestBody Organizer organizer) {
         return new ResponseEntity<>(organizerService.saveOrganizer(organizer), HttpStatus.CREATED);
     }
 
+    //method: GET, link: baseURL + "/organizers?mail=" + organizerMail + "&password=" + organizerPassword, receive: organizer in a json(302) or 404
     @GetMapping("/organizers")
     public ResponseEntity<Organizer> getOrganizerByMailAndPassword(@RequestParam("mail") String mail, @RequestParam("password") String password){
         Optional<Organizer> organizer = organizerService.getOrganizerByMailAndPassword(mail, password);
@@ -31,6 +33,7 @@ public class OrganizerController {
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    //method: GET, link: baseURL + "/organizers/" + organizerMail, receive: 302 or 404
     @GetMapping("/organizers/{mail}")
     public ResponseEntity<HttpStatus> checkOrganizerByMail(@PathVariable("mail") String organizerMail){
         if(!organizerService.organizerExistsByMail(organizerMail))
@@ -38,6 +41,8 @@ public class OrganizerController {
         else return new ResponseEntity<>(HttpStatus.FOUND);
     }
 
+    //method: DELETE, link: baseURL + "/organizers/" + organizerID, receive: 200 or 404
+    ////RECOMMENDED: DELETE EVENTS FOR THE SPECIFIC ORGANIZER FIRST!!!
     @DeleteMapping("/organizers/{id}")
     public ResponseEntity<HttpStatus> deleteOrganizerById(@PathVariable("id") Long organizerId){
         if(!organizerService.organizerExists(organizerId)){
@@ -47,6 +52,7 @@ public class OrganizerController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    //method: PUT, link: baseURL + "/organizers/" + organizerId, body: newOrganizer as json, receive: 302 or 404
     @PutMapping("/organizers/{id}")
     public ResponseEntity<Organizer> updateOrganizer(@Validated @RequestBody Organizer neworganizer, @PathVariable("id") Long organizerId){
         Optional<Organizer> oldorganizer = organizerService.getOrganizerById(organizerId);

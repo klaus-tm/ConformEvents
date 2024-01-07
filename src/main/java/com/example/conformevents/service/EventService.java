@@ -22,4 +22,6 @@ public interface EventService {
 
     void deleteEventById( Long eventId);
 
+    void deleteEventsByOrganizer(Organizer organizer);
+
 }

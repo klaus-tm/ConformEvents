@@ -16,11 +16,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    //method: POST, link: baseURL + "/users", body: user as a json, receive: 201
     @PostMapping("/users")
     public ResponseEntity<User> saveUser(@Validated @RequestBody User user) {
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 
+    //method: GET, link: baseURL + "/users?mail=" + userMail + "&password=" + userPassword, receive: user in a json(302) or 404
     @GetMapping("/users")
     public ResponseEntity<User> getUserByMailAndPassword(@RequestParam("mail") String mail, @RequestParam("password") String password){
         Optional<User> user = userService.getUserByMailAndPassword(mail, password);
@@ -30,6 +32,7 @@ public class UserController {
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    //method: GET, link: baseURL + "/users/" + userMail, receive: 302 or 404
     @GetMapping("/users/{mail}")
     public ResponseEntity<HttpStatus> checkUserByMail(@PathVariable("mail") String userMail){
         if(!userService.userExistsByMail(userMail))
@@ -37,6 +40,8 @@ public class UserController {
         else return new ResponseEntity<>(HttpStatus.FOUND);
     }
 
+    //method: DELETE, link: baseURL + "/users/" + userID, receive: 200 or 404
+    ////RECOMMENDED: DELETE EVENTS AND TICKETS FOR THE SPECIFIC USER FIRST!!!
     @DeleteMapping("/users/{id}")
     public ResponseEntity<HttpStatus> deleteUserById(@PathVariable("id") Long userId){
         if(!userService.userExists(userId)){
@@ -46,6 +51,7 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    //method: PUT, link: baseURL + "/users/" + userId, body: newUser as json, receive: 302 or 404
     @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser( @Validated @RequestBody User newUser, @PathVariable("id") Long userId){
         Optional<User> oldUser = userService.getUserById(userId);

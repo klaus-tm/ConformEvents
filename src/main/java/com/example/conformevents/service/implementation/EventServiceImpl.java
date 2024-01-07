@@ -80,4 +80,9 @@ public class EventServiceImpl implements EventService {
     public void deleteEventById(Long eventId) {
         eventRepository.deleteById(eventId);
     }
+
+    @Override
+    public void deleteEventsByOrganizer(Organizer organizer) {
+        eventRepository.deleteAllByOrganizer(organizer);
+    }
 }

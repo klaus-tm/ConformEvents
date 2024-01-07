@@ -16,11 +16,13 @@ public class VolunteerController {
     @Autowired
     private VolunteerService volunteerService;
 
+    //method: POST, link: baseURL + "/volunteers", body: volunteer as a json, receive: 201
     @PostMapping("/volunteers")
     public ResponseEntity<Volunteer> savevolunteer(@Validated @RequestBody Volunteer volunteer) {
         return new ResponseEntity<>(volunteerService.saveVolunteer(volunteer), HttpStatus.CREATED);
     }
 
+    //method: GET, link: baseURL + "/volunteers?mail=" + volunteerMail + "&password=" + volunteerPassword, receive: volunteer in a json(302) or 404
     @GetMapping("/volunteers")
     public ResponseEntity<Volunteer> getvolunteerByMailAndPassword(@RequestParam("mail") String mail, @RequestParam("password") String password){
         Optional<Volunteer> volunteer = volunteerService.getVolunteerByMailAndPassword(mail, password);
@@ -30,12 +32,16 @@ public class VolunteerController {
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    //method: GET, link: baseURL + "/volunteers/" + volunteerMail, receive: 302 or 404
     @GetMapping("/volunteers/{mail}")
     public ResponseEntity<HttpStatus> checkVolunteerByMail(@PathVariable("mail") String volunteerMail){
         if(!volunteerService.volunteerExistsByMail(volunteerMail))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         else return new ResponseEntity<>(HttpStatus.FOUND);
     }
+
+    //method: DELETE, link: baseURL + "/volunteers/" + volunteerID, receive: 200 or 404
+    ////RECOMMENDED: DELETE EVENTS AND TICKETS FOR THE SPECIFIC VOLUNTEER FIRST!!!
     @DeleteMapping("/volunteers/{id}")
     public ResponseEntity<HttpStatus> deletevolunteerById(@PathVariable("id") Long volunteerId){
         if(!volunteerService.volunteerExists(volunteerId)){
@@ -45,6 +51,7 @@ public class VolunteerController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    //method: PUT, link: baseURL + "/volunteers/" + volunteerId, body: newVolunteer as json, receive: 302 or 404
     @PutMapping("/volunteers/{id}")
     public ResponseEntity<Volunteer> updatevolunteer( @Validated @RequestBody Volunteer newvolunteer, @PathVariable("id") Long volunteerId){
         Optional<Volunteer> oldvolunteer = volunteerService.getVolunteerById(volunteerId);

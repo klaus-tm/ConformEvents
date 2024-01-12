@@ -30,9 +30,9 @@ public class VpassController {
         return new ResponseEntity<>(vpassService.saveVpass(vpass), HttpStatus.CREATED);
     }
 
-    //method: GET, link: baseURL + "/vpasses?user=" + volunteerID, receive: list inside a json(volunteer's vpassess)(302) or 404
+    //method: GET, link: baseURL + "/vpasses/volunteer?volunteer=" + volunteerID, receive: list inside a json(volunteer's vpassess)(302) or 404
     @GetMapping("/vpasses/volunteer")
-    public ResponseEntity<List<Vpass>> getVpassesByVolunteer(@RequestParam("userId") Long id) {
+    public ResponseEntity<List<Vpass>> getVpassesByVolunteer(@RequestParam("volunteer") Long id) {
         Optional<Volunteer> volunteer = volunteerService.getVolunteerById(id);
         if(volunteer.isPresent()){
             if (vpassService.getVpassesByVolunteer(volunteer.get()).isPresent())
@@ -41,13 +41,16 @@ public class VpassController {
         }else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-//la fel ca la tichet nu stim daca mai e nevoie. vedem
-//    @GetMapping("/vpasses/event")
-//    public ResponseEntity<List<Vpass>> getVpassesByEvent(@Validated @RequestBody Event event) {
-//        if (vpassService.getVpassesByEvent(event).isPresent())
-//            return new ResponseEntity<>(vpassService.getVpassesByEvent(event).get(), HttpStatus.FOUND);
-//        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//    }
+    //method: GET, link: baseURL + "/vpasses/event?event=" + eventID, receive: list inside a json(volunteer's vpassess)(302) or 404
+    @GetMapping("/vpasses/event")
+    public ResponseEntity<List<Vpass>> getVpassesByEvent(@RequestParam("event") Long id) {
+        Optional<Event> event = eventService.getEventById(id);
+        if(event.isPresent()){
+            if (vpassService.getVpassesByEvent(event.get()).isPresent())
+                return new ResponseEntity<>(vpassService.getVpassesByEvent(event.get()).get(), HttpStatus.FOUND);
+            else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 
     //method: GET, link: baseURL + "/vpasses/" + vpassId, receive: vpass as json(302) or 404
     @GetMapping("/vpasses/{id}")

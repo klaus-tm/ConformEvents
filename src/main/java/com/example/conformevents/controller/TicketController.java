@@ -31,8 +31,8 @@ public class TicketController {
         return new ResponseEntity<>(ticketService.saveTicket(ticket), HttpStatus.CREATED);
     }
 
-    //method: GET, link: baseURL + "/tickets?user=" + userID, receive: list inside a json(user's tickets)(302) or 404
-    @GetMapping("/tickets")
+    //method: GET, link: baseURL + "/tickets/user?user=" + userID, receive: list inside a json(user's tickets)(302) or 404
+    @GetMapping("/tickets/user")
     public ResponseEntity<List<Ticket>> getTicketsByUser(@RequestParam("user") Long id){
         Optional<User> user = userService.getUserById(id);
         if (user.isPresent()) {
@@ -42,13 +42,17 @@ public class TicketController {
         }else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
     }
-// nu stim daca ne mai trebuie vedem
-//    @GetMapping("/tickets/event")
-//    public ResponseEntity<List<Ticket>> getTicketsByEvent(@Validated @RequestBody Event event){
-//        if(ticketService.getTicketsByEvent(event).isPresent())
-//            return new ResponseEntity<>(ticketService.getTicketsByEvent(event).get(), HttpStatus.FOUND);
-//        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//    }
+
+    //method: GET, link: baseURL + "/tickets/event?event=" + eventID, receive: list inside a json(event's tickets)(302) or 404
+    @GetMapping("/tickets/event")
+    public ResponseEntity<List<Ticket>> getTicketsByEvent(@RequestParam("event") Long id){
+        Optional<Event> event = eventService.getEventById(id);
+        if(event.isPresent()){
+            if(ticketService.getTicketsByEvent(event.get()).isPresent())
+                return new ResponseEntity<>(ticketService.getTicketsByEvent(event.get()).get(), HttpStatus.FOUND);
+            else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 
     //method: GET, link: baseURL + "/tikets/" + ticketId, receive: ticket as json(302) or 404
     @GetMapping("/tickets/{id}")

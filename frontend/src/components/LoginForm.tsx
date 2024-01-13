@@ -27,7 +27,6 @@ function LoginForm() {
             if (response.status !== 404) {
                 let userData = await response.json();
                 userData = { type: 'Participant', ...userData };
-                // console.log(userData);
                 //Save the date
                 localStorage.setItem('userData', JSON.stringify(userData));
                 //go home
@@ -68,7 +67,6 @@ function LoginForm() {
             }
         }
     };
-
 
     return (
         // <div>

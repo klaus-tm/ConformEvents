@@ -17,7 +17,7 @@ function Logo() {
     return (
         <div className="logo">
             <a href={destinationURL} id="home-link">
-                <img src="./src/img/logo.gif" alt="Our logo" />
+                <img src="/src/img/logo.gif" alt="Our logo" />
                 <span>ConForm Events</span>
             </a>
         </div>

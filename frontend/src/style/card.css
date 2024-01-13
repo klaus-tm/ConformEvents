@@ -8,6 +8,14 @@
     background-color: var(--bg-color);
 }
 
+.cards-container1{
+    margin: 50px 40px 10px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 10px;
+    background-color: var(--bg-color);
+}
+
 /* Small card details */
 .sm-card {
     width: 400px;
@@ -30,9 +38,10 @@
     color: var(--text-color);
 }
 
-.sm-card-name {
+.sm-card-name, .ext-card-name {
     font-size: 24px;
     font-weight: bold;
+    color: var(--text-color);
 }
 
 .sm-card-button {
@@ -61,19 +70,116 @@
     opacity: 1;
 }
 
-.big-card{
-    width: 700px;
-    height: 600px;
-    margin-bottom: 40px;
-    border-radius: 20px;
+/*Extended card detalies*/
+.ext-card-conteiner{
+    margin: 100px 30px 30px 30px;
     background: var(--bg-color);
+}
+
+.content {
     position: relative;
-    padding: 1.8rem;
-    border: 2px solid var(--form-input);
-    transition: 0.5s ease-out;
-    overflow: visible;
-    color: var(--black);
-    gap: 5px;
-    display: grid;
-    place-content: center;
+    z-index: 2;
+}
+
+.ext-card-button3{
+    width: auto;
+    padding: 0.8em 1.7em;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 15px;
+    border: 1px solid;
+    margin-bottom: 10px;
+    color: var(--accent-secundary);
+    z-index: 1;
+}
+
+.ext-card-button3::before, .ext-card-button3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--accent-secundary);
+    transition: 1s ease;
+}
+
+.ext-card-button3::before {
+    top: -1em;
+    left: -1em;
+}
+
+.ext-card-button3::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+}
+
+.ext-card-button3:hover::before, .ext-card-button3:hover::after{
+    height: 410px;
+    width: 410px;
+}
+
+.ext-card-button3:hover {
+    color: var(--white);
+}
+
+.ext-card-button3:active {
+    filter: brightness(.8);
+}
+
+.price-and-type{
+    width: 250px;
+}
+
+.price-card{
+    margin-bottom: 5px;
+}
+
+.ext-card-button1{
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 0 !important;
+    outline: 0 !important;
+    background: var(--btn-secundary);
+    color: var(--white);
+    cursor: pointer;
+    box-shadow: var(--box-shadow) 0 3px 8px;
+    font-size: 15px;
+    width: 40px;
+}
+.ext-card-detalies{
+    margin-bottom: 3px;
+}
+
+.card-describe{
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.accordion {
+    box-shadow: var(--box-shadow) 0 5px 15px;
+    margin-bottom: 20px;
+}
+
+.accordion-header {
+    padding: 10px;
+    background-color: var(--btn-secundary);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.accordion-content {
+    padding: 10px;
+}
+
+.race-map-link{
+    font-size: 14px;
+    color: var(--btn-secundary);
 }

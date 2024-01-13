@@ -104,7 +104,9 @@ function CreateVolunteer() {
                     //Create account
                     const phoneNumber = formData.get('phone')?.toString() || '';
                     //Check if all is ok
-                    if (user.firstName !== '' && user.lastName !== '' && user.mail !== '' && user.password !== '' && phoneNumber !=='') {
+                    if (user.firstName !== '' && user.lastName !== '' && user.mail !== '' && user.password !== '' && phoneNumber !=='' &&
+                        isValidName(user.firstName) && isValidName(user.lastName) && isValidEmail(user.mail) &&
+                        isValidPassword(user.password) && isValidPhone(user.phone)){
                         //Create account
                         const response = await fetch(baseURL + '/volunteers', {
                             method: 'POST',
@@ -117,7 +119,7 @@ function CreateVolunteer() {
                             throw new Error(`HTTP error! Status: ${response.status}`);
                         }
                         else
-                            alert('The cont was created with success. Log in now.');
+                            alert('Cont was created with success. Log in now.');
                             //console.log("mere");
                     }
                     else alert('All inputs are mandatory.');

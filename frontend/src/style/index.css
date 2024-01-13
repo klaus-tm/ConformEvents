@@ -6,7 +6,7 @@
 }
 
 .big-container{
-    margin-top: 101px;
+    margin-top: 5px;
 }
 
 .container{
@@ -82,4 +82,9 @@
     color: var(--accent-color);
     font-size: 10px;
     margin: 0;
+}
+
+.container-img-cards{
+    display: flex;
+    flex-direction: column;
 }

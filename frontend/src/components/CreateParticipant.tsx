@@ -102,7 +102,9 @@ function CreateParticipant() {
                 }
                 else{
                     //Check if all is ok
-                    if (user.firstName !== '' && user.lastName !== '' && user.mail !== '' && user.password !== '') {
+                    if (user.firstName !== '' && user.lastName !== '' && user.mail !== '' && user.password !== '' &&
+                        isValidName(user.firstName) && isValidName(user.lastName) && isValidEmail(user.mail) &&
+                        isValidPassword(user.password)){
                         //Create account
                         const response = await fetch(baseURL + '/users', {
                             method: 'POST',
@@ -115,7 +117,7 @@ function CreateParticipant() {
                             throw new Error(`HTTP error! Status: ${response.status}`);
                         }
                         else
-                            alert('The cont was created with success. Log in now.');
+                            alert('Cont was created with success. Log in now.');
                             //console.log("mere");
                     }
                     else alert('All inputs are mandatory.');

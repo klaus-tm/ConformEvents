@@ -13,15 +13,10 @@ function isValidString(name: string): boolean {
 function isValidInt(value: string) {
     return /^[0-9]+$/.test(value);
 }
-function isValidGoogleMapsLink(link: string) {
-    // Expresia regulată pentru un link Google Maps
-    const googleMapsRegex = /^https?:\/\/(www\.)?google\.com\/maps\/place\/.+/;
-    return googleMapsRegex.test(link);
-}
-function isValidWazeLink(link: string) {
-    // Expresia regulată pentru un link Waze
-    const wazeRegex = /^https?:\/\/(www\.)?waze\.com\/.*[?&]ll=\-?\d+(\.\d+)?%2C\-?\d+(\.\d+)?/;
-    return wazeRegex.test(link);
+function isValidStravaLink(link: string) {
+    // Expresia regulată pentru un link Strava
+    const stravaRegex = /^https:\/\/www\.strava\.com\/routes\/(\d+)$/;
+    return stravaRegex.test(link);
 }
 function FormCreateEvent() {
     //constrangere data
@@ -96,6 +91,7 @@ function FormCreateEvent() {
         const formData = new FormData(e.currentTarget);
         if (storedUserData) {
             const userData = JSON.parse(storedUserData);
+            // console.log(userData);
             const name = formData.get('name')?.toString() || '';
             const deadline = formData.get('deadline')?.toString() || '';
             const date = formData.get('date')?.toString() || '';
@@ -105,8 +101,14 @@ function FormCreateEvent() {
             const maps = formData.get('linkMaps')?.toString() || '';
             const desc = formData.get('descEvent')?.toString() || '';
             // check the date
+            // console.log("name !== ''", name !== '')
+            // console.log("isValidString(name)",isValidString(name))
+            // console.log("deadline",deadline !== '')
+            // console.log("date, hour",date !== '' && hour !== '')
+            // console.log("judet, loc",judet !== '' && loc !== '')
+            // console.log(maps !== '' && desc !== '' && isValidString(desc));
             if(name !== '' && isValidString(name) && deadline !== '' && date !== '' && hour !== '' && judet !== ''
-                && isValidString(judet) && loc !== '' && isValidString(loc) && maps !== '' && desc !== '' && isValidString(desc)){
+                && loc !== '' && maps !== '' && desc !== '' && isValidString(desc)){
                 if (deadline < date) {
                     // console.log(prices);
                     // check the prices
@@ -116,7 +118,7 @@ function FormCreateEvent() {
                         const pricesString = prices.map(price => price.price).join('*');
 
                         const event = {
-                            id: userData.id,
+                            organizer: {id:userData.id},
                             name: name,
                             date: date,
                             startHours: hour,
@@ -225,7 +227,7 @@ function FormCreateEvent() {
                         <input type="text" name="linkMaps" className="orizontal-elem form-input"
                                placeholder="The starting location" onChange={(e) => {
                                    const value = e.target.value.trim();
-                                    if (!isValidGoogleMapsLink(value) && !isValidWazeLink(value)) {
+                                    if (!isValidStravaLink(value)) {
                                         setLinkError('Please enter a valid Google Maps or Waze link.');
                                     } else {
                                         setLinkError('');
@@ -268,6 +270,7 @@ function FormCreateEvent() {
                                        value={price.price} onChange={(e) => {
                                     const inputValue = e.target.value;
                                     const newPrices = [...prices];
+                                    newPrices[index].price = e.target.value;
                                     newPrices[index].price = e.target.value;
                                     setPrices(newPrices);
 

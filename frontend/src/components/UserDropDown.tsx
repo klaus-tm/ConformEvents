@@ -21,7 +21,10 @@ function UserDropDown() {
                 <div className="dropdown-content">
                     {/*<button className="btn-drop-down">Edit Profile</button>*/}
                     {/*{userTypeMenu}*/}
-                    <button className="btn-drop-down">Your events</button>
+                    {/*<button className="">Your events</button>*/}
+                    <a href="your-events" className="btn-drop-down" id="organizator">
+                        Your events
+                    </a>
                     <button className="btn-drop-down" onClick={handleLogout}>Log out</button>
                 </div>
             </div>

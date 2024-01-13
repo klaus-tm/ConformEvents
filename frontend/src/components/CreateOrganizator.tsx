@@ -36,18 +36,6 @@ function isValidPassword(pass: string): boolean {
 
 
 function CreateOrganizator() {
-    //select country
-    // const [selectedCountry, setSelectedCountry] = useState<string>('');
-    // const countriesDictionary: Record<string, CountryData> = {};
-    // countries.forEach((country: CountryData) => {
-    //     countriesDictionary[country.country] = country;
-    // });
-    // const countryOptions = Object.keys(countriesDictionary).map((countryName) => (
-    //     <option key={countryName} value={countryName}>
-    //         {countryName} ({countriesDictionary[countryName].prefix})
-    //     </option>
-    // ));
-
     //check inputs
     const [firstNameError, setFirstNameError] = useState<string>('');
     const [lastNameError, setLastNameError] = useState<string>('');
@@ -104,7 +92,9 @@ function CreateOrganizator() {
                     //Create account
                     const phoneNumber = formData.get('phone')?.toString() || '';
                     //Check if all is ok
-                    if (user.firstName !== '' && user.lastName !== '' && user.mail !== '' && user.password !== '' && phoneNumber !=='') {
+                    if (user.firstName !== '' && user.lastName !== '' && user.mail !== '' && user.password !== '' && phoneNumber !=='' &&
+                    isValidName(user.firstName) && isValidName(user.lastName) && isValidEmail(user.mail) &&
+                        isValidPassword(user.password) && isValidPhone(user.phone)) {
                         //Create account
                         const response = await fetch(baseURL + '/organizers', {
                             method: 'POST',
@@ -117,7 +107,7 @@ function CreateOrganizator() {
                             throw new Error(`HTTP error! Status: ${response.status}`);
                         }
                         else
-                            alert('The cont was created with success. Log in now.');
+                            alert('Cont was created with success. Log in now.');
                             // console.log("mere");
                     }
                     else alert('All inputs are mandatory.');

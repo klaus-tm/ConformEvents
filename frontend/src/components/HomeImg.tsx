@@ -3,7 +3,6 @@ import Message from "./Message.tsx";
 function HomeImg() {
     return (
         <div className="big-container col-12">
-            <Message />
             <br />
             <div className="container">
                 <img className="container-img img1" src="./src/img/2.jpg" alt="" />

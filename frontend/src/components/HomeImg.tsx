@@ -1,5 +1,3 @@
-import Message from "./Message.tsx";
-
 function HomeImg() {
     return (
         <div className="big-container col-12">

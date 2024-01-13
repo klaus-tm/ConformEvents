@@ -6,6 +6,7 @@ interface ParticipantsListProps {
 }
 
 const ParticipantsList: React.FC<ParticipantsListProps> = (props) => {
+    // TODO
     const { eventId } = props;
     const [isOpen, setIsOpen] = useState(false);
     const toggleAccordion = () => {
@@ -14,6 +15,7 @@ const ParticipantsList: React.FC<ParticipantsListProps> = (props) => {
     let table = null;
     useEffect(() => {
         const fetchEvents = async () => {
+            //get the participants to an event
             try {
                 const response = await fetch(`${baseURL}/tickets/event?event=${eventId}`, {
                     method: 'GET',

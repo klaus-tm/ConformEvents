@@ -8,7 +8,6 @@ function UserDropDown() {
         // Navigate to the Home page
         navigate('/');
     };
-
     // get the date
     const storedUserData = localStorage.getItem('userData');
     // console.log(storedUserData);
@@ -22,7 +21,7 @@ function UserDropDown() {
                     {/*<button className="btn-drop-down">Edit Profile</button>*/}
                     {/*{userTypeMenu}*/}
                     {/*<button className="">Your events</button>*/}
-                    <a href="your-events" className="btn-drop-down" id="organizator">
+                    <a href="/your-events" className="btn-drop-down" id="organizator">
                         Your events
                     </a>
                     <button className="btn-drop-down" onClick={handleLogout}>Log out</button>
@@ -30,7 +29,7 @@ function UserDropDown() {
             </div>
         );
     } else {
-        alert('There is an error. Please try again.');
+        return ;
     }
 }
 

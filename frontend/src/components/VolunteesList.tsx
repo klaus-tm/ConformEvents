@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const VolunteersList = () => {
+    // TODO
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleAccordion = () => {
@@ -14,7 +15,7 @@ const VolunteersList = () => {
             </div>
             {isOpen && (
                 <div className="accordion-content">
-                    <p>Conținutul Acordeonului va fi aici.</p>
+                    <p>Yes</p>
                 </div>
             )}
         </div>

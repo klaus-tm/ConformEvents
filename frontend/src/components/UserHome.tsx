@@ -3,23 +3,8 @@ import React, { useEffect, useState } from "react";
 import SmallCard from "./SmallCard.tsx";
 import Header from "./Header.tsx";
 import HomeImg from "./HomeImg.tsx";
-import ParticipantsList from "./ParticpantsList.tsx";
-import VolunteersList from "./VolunteesList.tsx";
 const baseURL: string = "http://localhost:8090";
-interface Event {
-    id: number;
-    name: string;
-    cityRegion: string;
-    date: string;
-    description: string;
-    raceMap: string;
-    racePrices: string;
-    raceTypes: string;
-    registerLimit: string;
-    startHours: string;
-    volunteersNumber: number;
-    organizer: number;
-}
+import {Event} from "./interfaces/Event.ts";
 function UserHome() {
     // upload events
     const [events, setEvents] = useState<Event[]>([]);
@@ -61,7 +46,7 @@ function UserHome() {
         }
     }
     return (
-        <div>
+        <>
             <Header/>
             <main className="col-12 container-img-cards">
                 <Message />
@@ -72,7 +57,7 @@ function UserHome() {
                     ))}
                 </div>
             </main>
-        </div>
+        </>
     );
 }
 

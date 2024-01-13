@@ -2,27 +2,7 @@ import Header from "./Header.tsx";
 import {useEffect, useState} from "react";
 import SmallCard from "./SmallCard.tsx";
 const baseURL: string = "http://localhost:8090";
-interface Event {
-    id: number;
-    name: string;
-    cityRegion: string;
-    date: string;
-    description: string;
-    raceMap: string;
-    racePrices: string;
-    raceTypes: string;
-    registerLimit: string;
-    startHours: string;
-    volunteersNumber: number;
-    organizer: number;
-}
-interface Organizer{
-    id: number;
-    firstName: string;
-    lastName: string;
-    mail: string;
-    phone: string;
-}
+import {Event} from "./interfaces/Event.ts";
 function YourEvents() {
     const [pastEvents, setPastEvents] = useState<Event[]>([]);
     const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);

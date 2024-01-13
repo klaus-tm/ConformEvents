@@ -72,13 +72,28 @@
 
 /*Extended card detalies*/
 .ext-card-conteiner{
-    margin: 100px 30px 30px 30px;
+    margin-top: 120px;
     background: var(--bg-color);
+    display: flex;
+    justify-content: center;
 }
 
-.content {
+.ext-card {
+    width: 900px;
+    height: 400px;
+    background: var(--bg-color);
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
-    z-index: 2;
+    box-shadow: 0 4px 18px 0 var(--box-shadow);
+    transition: all .5s ease;
+}
+
+.content{
+    margin: 20px;
 }
 
 .ext-card-button3{
@@ -154,8 +169,13 @@
     font-size: 15px;
     width: 40px;
 }
-.ext-card-detalies{
+.ext-card-detalies, .ext-card-organizer{
     margin-bottom: 3px;
+}
+
+.ext-card-organizer{
+    font-size: 12px;
+    color: var(--text-secundary);
 }
 
 .card-describe{

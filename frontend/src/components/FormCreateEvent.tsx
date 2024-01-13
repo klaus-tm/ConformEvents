@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 const baseURL: string = "http://localhost:8090";
+import { useNavigate } from 'react-router-dom';
 interface Locality {
     nume: string;
     diacritice: string;
@@ -84,6 +85,7 @@ function FormCreateEvent() {
     const [numberError, setNumberError] = useState<string>('');
     const [linkError, setLinkError] = useState<string>('');
     const storedUserData = localStorage.getItem('userData');
+    const navigate = useNavigate();
     //salvare in baza de date
     const handleSubmitCreate = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -130,7 +132,7 @@ function FormCreateEvent() {
                             racePrices: pricesString,
                             raceTypes: typesString
                         };
-                        console.log(event);
+                        // console.log(event);
                         //Create event
                         const response = await fetch(baseURL + '/events', {
                             method: 'POST',
@@ -143,7 +145,7 @@ function FormCreateEvent() {
                             throw new Error(`HTTP error! Status: ${response.status}`);
                         }
                         else
-                            alert('The event was created.');
+                            navigate('/home');
                     } else
                         alert('All price fields in the form are mandatory. The second field must be an integer.');
                 }

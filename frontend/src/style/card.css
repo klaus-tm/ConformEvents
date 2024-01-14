@@ -80,7 +80,7 @@
 
 .ext-card {
     width: 900px;
-    height: 400px;
+    height: auto;
     background: var(--bg-color);
     border-radius: 15px;
     overflow: hidden;
@@ -97,20 +97,23 @@
 }
 
 .ext-card-button3{
-    width: auto;
-    padding: 0.8em 1.7em;
     background-color: transparent;
-    border-radius: .3em;
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    transition: .5s;
-    font-weight: 400;
     font-size: 15px;
+    font-weight: 400;
+    transition: .5s;
+    /*transform: translate(-50%, 0%);*/
+    margin-top: 5px;
+    /*margin-left: 25px;*/
+    width: auto;
+    border-radius: 1rem;
     border: 1px solid;
     margin-bottom: 10px;
     color: var(--accent-secundary);
     z-index: 1;
+    padding: 8px 16px;
 }
 
 .ext-card-button3::before, .ext-card-button3::after {
@@ -139,14 +142,21 @@
 .ext-card-button3:hover::before, .ext-card-button3:hover::after{
     height: 410px;
     width: 410px;
+    color: var(--white);
 }
 
 .ext-card-button3:hover {
     color: var(--white);
 }
 
-.ext-card-button3:active {
-    filter: brightness(.8);
+#pay{
+    transform: translate(-50%, 0%);
+    margin-left: 25px;
+}
+
+.price-card {
+    display: flex;
+    align-items: center;
 }
 
 .price-and-type{

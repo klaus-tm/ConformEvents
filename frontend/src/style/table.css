@@ -1,0 +1,18 @@
+table {
+    width: 860px;
+    border-collapse: collapse;
+}
+
+thead th {
+    border: 1px solid var(--box-shadow);
+    padding: 8px;
+    text-align: left;
+}
+
+tbody td {
+    border: 1px solid var(--box-shadow);
+    padding: 8px;
+    text-align: left;
+}
+
+

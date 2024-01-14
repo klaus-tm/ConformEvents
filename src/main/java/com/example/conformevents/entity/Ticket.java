@@ -18,6 +18,12 @@ public class Ticket {
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
+    @Column
+    private String raceType;
+
+    @Column
+    private String racePrice;
+
     @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "eventId", updatable = false)
     private Event event;

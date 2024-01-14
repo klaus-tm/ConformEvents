@@ -38,13 +38,6 @@ function UserHome() {
 
         fetchEvents();
     }, []);
-    const storedUserData = localStorage.getItem('userData');
-    if (storedUserData) {
-        const userData = JSON.parse(storedUserData);
-        if (userData.type === 'Organiser'){
-
-        }
-    }
     return (
         <>
             <Header/>

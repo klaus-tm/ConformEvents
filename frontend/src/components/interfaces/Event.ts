@@ -1,5 +1,4 @@
 // for use import { Event } from './interfaces/Event';
-import {User} from "./User.ts";
 export interface Event {
     id: number;
     name: string;
@@ -12,5 +11,11 @@ export interface Event {
     registerLimit: string;
     startHours: string;
     volunteersNumber: number;
-    organizer: User;
+    organizer: {
+        id: number;
+        firstName: string;
+        lastName: string;
+        mail: string;
+        phone: string;
+    }
 }

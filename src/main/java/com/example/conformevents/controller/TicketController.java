@@ -62,7 +62,7 @@ public class TicketController {
 
     //method: GET, link: baseURL + "/tickets/check?event=" + eventID + "&user=" + userID, receive: vpass in a json(302) or 404
     @GetMapping("/tickets/check")
-    public ResponseEntity<Ticket> getTicketByEventAndUser(@RequestParam("event") Long eventId, @RequestParam("userId") Long userId){
+    public ResponseEntity<Ticket> getTicketByEventAndUser(@RequestParam("event") Long eventId, @RequestParam("user") Long userId){
         Optional<Event> event = eventService.getEventById(eventId);
         Optional<User> user = userService.getUserById(userId);
         if(event.isPresent() && user.isPresent()){

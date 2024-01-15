@@ -12,7 +12,7 @@ function YourEvents() {
     useEffect(() => {
         if (storedUserData) {
             const userData = JSON.parse(storedUserData);
-            const fetchEvents = async () => {
+            const fetchOrganisers = async () => {
                 try {
                     const response = await fetch(`${baseURL}/events?organizer=` + userData.id, {
                         method: 'GET',
@@ -61,8 +61,126 @@ function YourEvents() {
                     console.error('An unexpected error occurred:', error);
                 }
             };
+            const fetchVolunteers = async () => {
+                try {
+                    const response = await fetch(`${baseURL}/vpasses/volunteer?volunteer=` + userData.id, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        redirect: 'follow'
+                    });
 
-            fetchEvents();
+                    if (response.status !== 302) {
+                        console.error('Error fetching events:', response.status, response.statusText, await response.text());
+                        return;
+                    }
+
+                    const data = await response.json();
+                    console.log('*');
+                    console.log(data);
+
+                    if (Array.isArray(data)) {
+                        const currentDate = new Date();
+
+                        const past: Event[] = [];
+                        const upcoming: Event[] = [];
+                        const current: Event[] = [];
+
+                        data.forEach((vpass) => {
+                            const eventDetails = vpass.event; // Accesează detaliile evenimentului
+                            // console.log(vpass.event);
+                            if (!eventDetails) {
+                                console.error('Unexpected data format for VPass:', vpass);
+                                return;
+                            }
+
+                            const eventDate = new Date(eventDetails.date);
+
+                            if (currentDate > eventDate) {
+                                past.push(eventDetails);
+                            } else if (currentDate < eventDate) {
+                                upcoming.push(eventDetails);
+                            } else {
+                                current.push(eventDetails);
+                            }
+                        });
+
+                        setPastEvents(past);
+                        setUpcomingEvents(upcoming);
+                        setCurrentEvents(current);
+                    } else {
+                        console.error('Unexpected data format for events:', data);
+                    }
+
+                    setLoading(false);
+                } catch (error) {
+                    console.error('An unexpected error occurred:', error);
+                }
+            };
+            const fetchParticpants = async () => {
+                try {
+                    const response = await fetch(`${baseURL}/tickets/user?user=` + userData.id, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        redirect: 'follow'
+                    });
+
+                    if (response.status !== 302) {
+                        console.error('Error fetching events:', response.status, response.statusText, await response.text());
+                        return;
+                    }
+
+                    const data = await response.json();
+                    // console.log('*');
+                    console.log(data);
+
+                    if (Array.isArray(data)) {
+                        const currentDate = new Date();
+
+                        const past: Event[] = [];
+                        const upcoming: Event[] = [];
+                        const current: Event[] = [];
+
+                        data.forEach((ticket) => {
+                            const eventDetails = ticket.event;
+                            // console.log(vpass.event);
+                            if (!eventDetails) {
+                                console.error('Unexpected data format for VPass:', ticket);
+                                return;
+                            }
+
+                            const eventDate = new Date(eventDetails.date);
+
+                            if (currentDate > eventDate) {
+                                past.push(eventDetails);
+                            } else if (currentDate < eventDate) {
+                                upcoming.push(eventDetails);
+                            } else {
+                                current.push(eventDetails);
+                            }
+                        });
+
+                        setPastEvents(past);
+                        setUpcomingEvents(upcoming);
+                        setCurrentEvents(current);
+                    } else {
+                        console.error('Unexpected data format for events:', data);
+                    }
+
+                    setLoading(false);
+                } catch (error) {
+                    console.error('An unexpected error occurred:', error);
+                }
+            };
+            if(userData.type === 'Organiser')
+                fetchOrganisers();
+            else if(userData.type === 'Volunteers')
+                fetchVolunteers();
+            else
+                fetchParticpants();
         }
     }, [storedUserData]);
     return (

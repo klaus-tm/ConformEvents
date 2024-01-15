@@ -26,8 +26,8 @@ const VolunteersList: React.FC<VolunteersListProps> = (props) => {
                     console.error('Error fetching participants:', response.status, response.statusText, await response.text());
                     return;
                 }
-
-                setVpasses(await response.json());
+                else
+                    setVpasses(await response.json());
             } catch (error) {
                 console.error('An unexpected error occurred:', error);
             }
@@ -64,7 +64,7 @@ const VolunteersList: React.FC<VolunteersListProps> = (props) => {
                             <tr key={vpass.id}>
                                 <td>{vpass.volunteer.firstName}</td>
                                 <td>{vpass.volunteer.lastName}</td>
-                                {(isOrganizier && vpasses[0].event?.organizer?.id === userData.id) ? (
+                                {isOrganizier ? (
                                     <>
                                         <td>{vpass.volunteer.mail}</td>
                                         <td>{vpass.volunteer.phone}</td>

@@ -7,6 +7,7 @@ import './style/header.css';
 import './style/index.css';
 import './style/card.css';
 import './style/table.css';
+import './style/searchBar.css';
 
 import {BrowserRouter as Router, Routes, Route, Path} from 'react-router-dom';
 import UserHome from "./components/UserHome.tsx";

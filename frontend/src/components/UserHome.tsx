@@ -1,22 +1,47 @@
-import Message from "./Message.tsx";
-import React, { useEffect, useState } from "react";
-import SmallCard from "./SmallCard.tsx";
-import Header from "./Header.tsx";
-import HomeImg from "./HomeImg.tsx";
-const baseURL: string = "http://localhost:8090";
-import {Event} from "./interfaces/Event.ts";
+// UserHome.tsx
+
+import React, { useEffect, useState } from 'react';
+import SearchBar from './SearchBar';
+import SmallCard from './SmallCard';
+import Header from './Header';
+import HomeImg from './HomeImg';
+import Message from './Message';
+import { Event } from './interfaces/Event';
+
+const baseURL: string = 'http://localhost:8090';
+
 function UserHome() {
-    // upload events
     const [events, setEvents] = useState<Event[]>([]);
+    const [filteredEvents, setFilteredEvents] = useState<Event[]>([]);
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearch = (term: string) => {
+        setSearchTerm(term);
+
+        if (term.trim() === '') {
+            // If the search term is empty, show all events
+            setFilteredEvents(events);
+        } else {
+            // Perform the filtering based on the search term and all fields
+            const filtered = events.filter((event) =>
+                Object.values(event).some((value) =>
+                    value.toString().toLowerCase().includes(term.toLowerCase())
+                )
+            );
+
+            setFilteredEvents(filtered);
+        }
+    };
+
     useEffect(() => {
         const fetchEvents = async () => {
             try {
                 const response = await fetch(`${baseURL}/events/all`, {
                     method: 'GET',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
                     },
-                    redirect: 'follow'
+                    redirect: 'follow',
                 });
 
                 if (response.status !== 302) {
@@ -28,6 +53,8 @@ function UserHome() {
 
                 if (Array.isArray(data)) {
                     setEvents(data);
+                    // Initially, show all events
+                    setFilteredEvents(data);
                 } else {
                     console.error('Unexpected data format for events:', data);
                 }
@@ -38,19 +65,21 @@ function UserHome() {
 
         fetchEvents();
     }, []);
+
     return (
-        <>
-            <Header/>
+        <div>
+            <Header />
             <main className="col-12 container-img-cards">
                 <Message />
                 <HomeImg />
+                <SearchBar onSearch={handleSearch} />
                 <div className="cards-container1">
-                    {events.map((event) => (
+                    {filteredEvents.map((event) => (
                         <SmallCard key={event.id} event={event} />
                     ))}
                 </div>
             </main>
-        </>
+        </div>
     );
 }
 

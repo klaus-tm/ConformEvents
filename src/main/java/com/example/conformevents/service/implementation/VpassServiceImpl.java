@@ -37,6 +37,11 @@ public class VpassServiceImpl implements VpassService {
     }
 
     @Override
+    public Optional<Vpass> getVpassByEventAndVolunteer(Event event, Volunteer volunteer) {
+        return vpassRepository.findVpassByEventAndVolunteer(event, volunteer);
+    }
+
+    @Override
     public void deleteVpassById(Long vpassId) {
         vpassRepository.deleteById(vpassId);
     }

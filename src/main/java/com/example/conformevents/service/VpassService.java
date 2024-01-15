@@ -15,6 +15,8 @@ public interface VpassService {
 
     Optional<Vpass> getVpassById(Long vpassId);
 
+    Optional<Vpass> getVpassByEventAndVolunteer(Event event, Volunteer volunteer);
+
     void deleteVpassById(Long vpassId);
 
     void deleteVpassesByEvent(Event event);

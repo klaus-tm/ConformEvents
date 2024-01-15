@@ -37,6 +37,11 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
+    public Optional<Ticket> getTicketByEventAndUser(Event event, User user) {
+        return ticketRepository.findTicketByEventAndUser(event, user);
+    }
+
+    @Override
     public void deleteTicketById(Long ticketId) {
         ticketRepository.deleteById(ticketId);
     }

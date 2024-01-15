@@ -60,6 +60,18 @@ public class VpassController {
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    //method: GET, link: baseURL + "/vpasses/check?event=" + eventID + "&volunteer=" + volunteerID, receive: vpass in a json(302) or 404
+    @GetMapping("/vpasses/check")
+    public ResponseEntity<Vpass> getVpassByEventAndVolunteer(@RequestParam("event") Long eventId, @RequestParam("volunteer") Long volunteerId){
+        Optional<Event> event = eventService.getEventById(eventId);
+        Optional<Volunteer> volunteer = volunteerService.getVolunteerById(volunteerId);
+        if(event.isPresent() && volunteer.isPresent()){
+            if(vpassService.getVpassByEventAndVolunteer(event.get(), volunteer.get()).isPresent()){
+                return new ResponseEntity<>(vpassService.getVpassByEventAndVolunteer(event.get(), volunteer.get()).get(), HttpStatus.FOUND);
+            } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
     //method: DELETE, link: baseURL + "/vpasses/" + vpassId, receive: 200 or 404
     @DeleteMapping("/vpasses/{id}")
     public ResponseEntity<HttpStatus> deleteVpassById(@PathVariable("id") Long vpassId){
@@ -72,7 +84,7 @@ public class VpassController {
     //method: DELETE, link: baseURL + "/vpasses/event?event=" + eventId, receive: 200 or 404
     //USE THIS METHOD WHEN YOU WANT TO DELETE A CERTAIN EVENT!!!
     @DeleteMapping("/vpasses/event")
-    public ResponseEntity<HttpStatus> deleteVpassesByEvent(@RequestParam("eventId") Long eventId){
+    public ResponseEntity<HttpStatus> deleteVpassesByEvent(@RequestParam("event") Long eventId){
         Optional<Event>event = eventService.getEventById(eventId);
         if(event.isPresent()){
             vpassService.deleteVpassesByEvent(event.get());
@@ -80,10 +92,10 @@ public class VpassController {
         } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    //method: DELETE, link: baseURL + "/vpasses/user?user=" + userId, receive: 200 or 404
+    //method: DELETE, link: baseURL + "/vpasses/volunteer?volunteer=" + userId, receive: 200 or 404
     //USE THIS METHOD WHEN YOU WANT TO DELETE A CERTAIN USER!!!
     @DeleteMapping("/vpasses/volunteer")
-    public ResponseEntity<HttpStatus> deleteVpassesByVolunteer(@RequestParam("userId") Long userId){
+    public ResponseEntity<HttpStatus> deleteVpassesByVolunteer(@RequestParam("volunteer") Long userId){
         Optional<Volunteer>volunteer = volunteerService.getVolunteerById(userId);
         if(volunteer.isPresent()){
             vpassService.deleteVpassesByVolunteer(volunteer.get());

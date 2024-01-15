@@ -13,6 +13,7 @@ import java.util.Optional;
 public interface VpassRepository extends JpaRepository<Vpass, Long> {
     Optional<List<Vpass>> findVpassesByEvent(Event event);
     Optional<List<Vpass>> findVpassesByVolunteer(Volunteer volunteer);
+    Optional<Vpass> findVpassByEventAndVolunteer(Event event, Volunteer volunteer);
 
     void deleteAllByEvent(Event event);
     void deleteAllByVolunteer(Volunteer volunteer);

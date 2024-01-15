@@ -48,7 +48,7 @@ public class Event {
     @Column
     private String raceTypes;
 
-    @Column
+    @Column(length = 9999999)
     private String description;
 
     @ManyToOne(cascade = CascadeType.DETACH)

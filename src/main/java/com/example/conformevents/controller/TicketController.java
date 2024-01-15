@@ -1,8 +1,6 @@
 package com.example.conformevents.controller;
 
-import com.example.conformevents.entity.Event;
-import com.example.conformevents.entity.Ticket;
-import com.example.conformevents.entity.User;
+import com.example.conformevents.entity.*;
 import com.example.conformevents.service.EventService;
 import com.example.conformevents.service.TicketService;
 import com.example.conformevents.service.UserService;
@@ -60,6 +58,18 @@ public class TicketController {
         if(ticketService.getTicketById(ticketId).isPresent())
             return new ResponseEntity<>(ticketService.getTicketById(ticketId).get(), HttpStatus.FOUND);
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    //method: GET, link: baseURL + "/tickets/check?event=" + eventID + "&user=" + userID, receive: vpass in a json(302) or 404
+    @GetMapping("/tickets/check")
+    public ResponseEntity<Ticket> getTicketByEventAndUser(@RequestParam("event") Long eventId, @RequestParam("userId") Long userId){
+        Optional<Event> event = eventService.getEventById(eventId);
+        Optional<User> user = userService.getUserById(userId);
+        if(event.isPresent() && user.isPresent()){
+            if(ticketService.getTicketByEventAndUser(event.get(), user.get()).isPresent()){
+                return new ResponseEntity<>(ticketService.getTicketByEventAndUser(event.get(), user.get()).get(), HttpStatus.FOUND);
+            } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     //method: DELETE, link: baseURL + "/tikets/" + ticketId, receive: 200 or 404

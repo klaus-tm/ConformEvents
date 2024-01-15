@@ -16,6 +16,8 @@ public interface TicketService {
 
     Optional<Ticket> getTicketById(Long ticketId);
 
+    Optional<Ticket> getTicketByEventAndUser(Event event, User user);
+
     void deleteTicketById(Long ticketId);
     void deleteTicketsByEvent(Event event);
     void deleteTicketsByUser(User user);

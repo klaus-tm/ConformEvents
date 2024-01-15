@@ -12,8 +12,8 @@ import java.util.Optional;
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
     Optional<List<Ticket>> findTicketsByEvent(Event event);
-
     Optional<List<Ticket>> findTicketsByUser(User user);
+    Optional<Ticket> findTicketByEventAndUser(Event event, User user);
 
     void deleteAllByEvent(Event event);
 

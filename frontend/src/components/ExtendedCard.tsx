@@ -110,8 +110,10 @@ function ExtendedCard() {
                         });
                         if (!response2.ok) {
                             throw new Error(`HTTP error! Status: ${response2.status}`);
-                        } else
+                        } else{
+                            alert("You signed up.");
                             window.location.reload();
+                        }
                     }
                 }
             }

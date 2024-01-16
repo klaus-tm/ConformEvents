@@ -7,6 +7,7 @@ import Header from './Header';
 import HomeImg from './HomeImg';
 import Message from './Message';
 import { Event } from './interfaces/Event';
+import '../style/cardContainer.css';
 
 const baseURL: string = 'http://localhost:8090';
 

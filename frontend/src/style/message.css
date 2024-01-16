@@ -1,0 +1,15 @@
+.intro {
+    color: white; /* Default color for 'You are not logged in' */
+}
+
+.intro.participant {
+    color: white/* Color for 'Participate in our events' */;
+}
+
+.intro.organiser {
+    color: white/* Color for 'Create new events!' */;
+}
+
+.intro.volunteers {
+    color: white/* Color for 'Lend a helping hand' */;
+}

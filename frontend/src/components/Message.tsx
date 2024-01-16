@@ -1,5 +1,7 @@
+import '../style/message.css';
+
 function Message() {
-    let userTypeMenu = <p className="intro">You are not logged in.</p>;
+    let userTypeMenu = <p className="intro not-logged-in">You are not logged in.</p>;
 
     // get the date
     const storedUserData = localStorage.getItem('userData');
@@ -10,13 +12,13 @@ function Message() {
 
         switch (userData.type) {
             case 'Participant':
-                userTypeMenu = <p className="intro">Participate in our events</p>;
+                userTypeMenu = <p className="intro participant">Participate in our events</p>;
                 break;
             case 'Organiser':
-                userTypeMenu = <p className="intro">Create new events!</p>;
+                userTypeMenu = <p className="intro organiser">Create new events!</p>;
                 break;
             case 'Volunteers':
-                userTypeMenu = <p className="intro">Lend a helping hand</p>;
+                userTypeMenu = <p className="intro volunteers">Lend a helping hand</p>;
                 break;
         }
     }

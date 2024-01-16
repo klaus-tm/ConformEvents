@@ -1,0 +1,11 @@
+/* Add these styles to your existing CSS file */
+
+.no-data {
+    color: #fff; /* Set the color for 'No data to print.' */
+    /* Add any additional styles as needed */
+}
+
+.cards-container1 h3 {
+    color: #fff; /* Set the color for the headings */
+    /* Add any additional styles as needed */
+}

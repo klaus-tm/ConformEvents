@@ -16,15 +16,15 @@
 > > > d. **_Postman_** for testing the apis without the need of the frontend
 > 3. **Images**  
 > Main page image: 
-> ![img.png](img.png)
-> Create account form:
-> ![img_1.png](img_1.png)
-> Review future races in your participant/volunteer account:
-> ![img_2.png](img_2.png)
-> Review created events in your organizer accont:
-> ![img_3.png](img_3.png)
-> Detailed atributes for the event:
-> ![img_4.png](img_4.png)(there is room for improovements)
+> ![img.png](img.png)  
+> Create account form:  
+> ![img_1.png](img_1.png)  
+> Review future races in your participant/volunteer account:  
+> ![img_2.png](img_2.png)  
+> Review created events in your organizer accont:  
+> ![img_3.png](img_3.png)  
+> Detailed atributes for the event:  
+> ![img_4.png](img_4.png)(there is room for improovements)  
 > 4. Requirements:
 > > a. docker(latest version preffered)  
 > > b. node modules (version 18 for React)  

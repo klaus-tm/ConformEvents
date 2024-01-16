@@ -1,10 +1,10 @@
 import FormCreateEvent from "./FormCreateEvent.tsx";
 import Header from "./Header.tsx";
 function CreateEvent() {
-    return <div>
+    return <>
         <Header/>
         <FormCreateEvent />
-    </div>;
+    </>;
 }
 
 export default CreateEvent;

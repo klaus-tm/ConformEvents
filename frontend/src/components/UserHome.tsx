@@ -68,7 +68,7 @@ function UserHome() {
     }, []);
 
     return (
-        <div>
+        <>
             <Header />
             <main className="col-12 container-img-cards">
                 <Message />
@@ -80,7 +80,7 @@ function UserHome() {
                     ))}
                 </div>
             </main>
-        </div>
+        </>
     );
 }
 

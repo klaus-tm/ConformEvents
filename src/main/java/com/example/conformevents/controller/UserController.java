@@ -23,6 +23,8 @@ public class UserController {
     }
 
     //method: GET, link: baseURL + "/users?mail=" + userMail + "&password=" + userPassword, receive: user in a json(302) or 404
+    //NOT SAFE USE PUT METHOD UPDATE SOON
+    //COULDN'T UPDATE TOO SHORT TIME!!!!
     @GetMapping("/users")
     public ResponseEntity<User> getUserByMailAndPassword(@RequestParam("mail") String mail, @RequestParam("password") String password){
         Optional<User> user = userService.getUserByMailAndPassword(mail, password);

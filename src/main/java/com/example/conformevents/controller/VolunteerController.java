@@ -23,6 +23,8 @@ public class VolunteerController {
     }
 
     //method: GET, link: baseURL + "/volunteers?mail=" + volunteerMail + "&password=" + volunteerPassword, receive: volunteer in a json(302) or 404
+    //NOT SAFE USE PUT METHOD UPDATE SOON
+    //COULDN'T UPDATE TOO SHORT TIME!!!!
     @GetMapping("/volunteers")
     public ResponseEntity<Volunteer> getvolunteerByMailAndPassword(@RequestParam("mail") String mail, @RequestParam("password") String password){
         Optional<Volunteer> volunteer = volunteerService.getVolunteerByMailAndPassword(mail, password);

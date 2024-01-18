@@ -7,6 +7,7 @@ import Header from './Header';
 import HomeImg from './HomeImg';
 import Message from './Message';
 import { Event } from './interfaces/Event';
+import '../style/cardContainer.css';
 
 const baseURL: string = 'http://localhost:8090';
 
@@ -67,7 +68,7 @@ function UserHome() {
     }, []);
 
     return (
-        <div>
+        <>
             <Header />
             <main className="col-12 container-img-cards">
                 <Message />
@@ -79,7 +80,7 @@ function UserHome() {
                     ))}
                 </div>
             </main>
-        </div>
+        </>
     );
 }
 

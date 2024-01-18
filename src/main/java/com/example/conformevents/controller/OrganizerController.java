@@ -24,6 +24,8 @@ public class OrganizerController {
     }
 
     //method: GET, link: baseURL + "/organizers?mail=" + organizerMail + "&password=" + organizerPassword, receive: organizer in a json(302) or 404
+    //NOT SAFE USE PUT METHOD UPDATE SOON
+    //COULDN'T UPDATE TOO SHORT TIME!!!!
     @GetMapping("/organizers")
     public ResponseEntity<Organizer> getOrganizerByMailAndPassword(@RequestParam("mail") String mail, @RequestParam("password") String password){
         Optional<Organizer> organizer = organizerService.getOrganizerByMailAndPassword(mail, password);

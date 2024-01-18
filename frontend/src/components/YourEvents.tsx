@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import SmallCard from "./SmallCard.tsx";
 const baseURL: string = "http://localhost:8090";
 import {Event} from "./interfaces/Event.ts";
+import '../style/userMessages.css';
 function YourEvents() {
     const [pastEvents, setPastEvents] = useState<Event[]>([]);
     const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
@@ -194,14 +195,14 @@ function YourEvents() {
                         <div>
                             <h3>Upcoming Events</h3>
                             {upcomingEvents.length > 0 ? (
-                                <>
-                                    <div className="cards-container1">
-                                        {upcomingEvents.map((event) => (
-                                            <SmallCard key={event.id} event={event} />
-                                        ))}
-                                    </div>
-                                </>) :
-                                <div>No data to print.</div>
+                                    <>
+                                        <div className="cards-container1">
+                                            {upcomingEvents.map((event) => (
+                                                <SmallCard key={event.id} event={event} />
+                                            ))}
+                                        </div>
+                                    </>) :
+                                <div className="no-data">No data to print.</div>
                             }
                             <h3>Current Events</h3>
                             {currentEvents.length > 0 ? (
@@ -212,7 +213,7 @@ function YourEvents() {
                                         ))}
                                     </div>
                                 </>
-                            ) : <div>No data to print.</div>}
+                            ) : <div className="no-data">No data to print.</div>}
                             <h3>Past Events</h3>
                             {pastEvents.length > 0 ? (
                                 <>
@@ -222,7 +223,7 @@ function YourEvents() {
                                         ))}
                                     </div>
                                 </>
-                            ) : <div>No data to print.</div>}
+                            ) : <div className="no-data">No data to print.</div>}
                         </div>
                     )}
                 </div>
@@ -230,4 +231,5 @@ function YourEvents() {
         </>
     );
 }
+
 export default YourEvents;

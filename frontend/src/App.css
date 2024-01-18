@@ -31,19 +31,21 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-image: url("img/background.jpg");
-    background-color: transparent;
-    background-size: cover;
-    background-position: center;
+
     height: 100vh;
+    /*backdrop-filter: blur(2px);*/
 }
 
 main {
-    margin-top: 101px;
+    background-image: url("img/background.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    /*margin-top: 101px;*/
+    /*background: linear-gradient(rgba(45, 50, 80, 0.9), rgba(45, 50, 80, 0.7));*/
     height: 100vh;
 }
+
 
 .main-container {
     max-height: calc(100vh - 20px); /* Maximum height */
@@ -55,6 +57,7 @@ main {
 .ext-card-conteiner{
     background-color: white;
 }
+
 
 
 

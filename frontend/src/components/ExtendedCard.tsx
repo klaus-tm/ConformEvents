@@ -175,6 +175,7 @@ function ExtendedCard() {
     };
     return (<>
         <Header/>
+        <main>
         {event ? (
             <div className="ext-card-conteiner">
                 <div className="ext-card">
@@ -242,6 +243,7 @@ function ExtendedCard() {
         ) : (
             <h1>There is an error. Please try again later.</h1>
         )}
+        </main>
     </>);
 }
 

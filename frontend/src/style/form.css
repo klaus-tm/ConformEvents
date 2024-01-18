@@ -2,7 +2,7 @@
 
 /* card form */
 .login-form{
-    height: 500px;
+    height: auto;
     top: calc(50% - 20px);
     width: 400px;
 }

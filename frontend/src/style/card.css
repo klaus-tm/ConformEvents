@@ -73,7 +73,7 @@
 /*Extended card detalies*/
 .ext-card-conteiner{
     margin-top: 120px;
-    background: var(--bg-color);
+    background: transparent;
     display: flex;
     justify-content: center;
 }
